@@ -1,0 +1,23 @@
+--cpu Cortex-M3
+"rct6\startup_stm32f103xe.o"
+"rct6\main.o"
+"rct6\stm32f1xx_it.o"
+"rct6\usart.o"
+"rct6\gpio.o"
+"rct6\stm32f1xx_hal_msp.o"
+"rct6\stm32f1xx_hal_dma.o"
+"rct6\stm32f1xx_hal_cortex.o"
+"rct6\stm32f1xx_hal_gpio_ex.o"
+"rct6\stm32f1xx_hal_rcc_ex.o"
+"rct6\stm32f1xx_hal_flash_ex.o"
+"rct6\stm32f1xx_hal_rcc.o"
+"rct6\stm32f1xx_hal_flash.o"
+"rct6\stm32f1xx_hal_gpio.o"
+"rct6\stm32f1xx_hal_uart.o"
+"rct6\stm32f1xx_hal.o"
+"rct6\stm32f1xx_hal_pwr.o"
+"rct6\system_stm32f1xx.o"
+--library_type=microlib --strict --scatter "RCT6\RCT6.sct"
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "RCT6.map" -o RCT6\RCT6.axf
