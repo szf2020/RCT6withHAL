@@ -1,6 +1,7 @@
 #ifndef _BSP_H_
 #define _BSP_H_
 #include "stm32f1xx_hal.h"
+#include "usart.h"
 
 typedef enum{
 	E_OK,

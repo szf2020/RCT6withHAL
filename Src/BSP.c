@@ -1,6 +1,6 @@
 #include "BSP.h"
 
-UART_HandleTypeDef huart1;//串口1
+
 /*
 funName	:Error_Handler
 input		:NA
@@ -97,34 +97,7 @@ void BSP_RccClockDisable(void)
   __HAL_RCC_GPIOA_CLK_DISABLE();
 
 }
-/*
-funName	:HAL_UART_MspInit
-input		:uartHandle 串口句柄
-output	:NA
-describe:init usart1 IO and NVIC
-remark	:
-*/
-void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
-{
 
-  GPIO_InitTypeDef GPIO_InitStruct;
-  if(uartHandle->Instance==USART1)
-  {
-    /**USART1 GPIO Configuration    
-    PA9     ------> USART1_TX
-    PA10     ------> USART1_RX 
-    */
-    GPIO_InitStruct.Pin = GPIO_PIN_9;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-    GPIO_InitStruct.Pin = GPIO_PIN_10;
-    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-  }
-}
 /*
 funName	:MX_USART1_UART_Init
 input		:NA
@@ -132,9 +105,10 @@ output	:NA
 describe:串口1初始化
 remark	:
 */
+extern UART_HandleTypeDef huart1;
+extern uint8_t aRxBuffer;
 void BSP_Usart1Init(uint32_t baud)
 {
-
   huart1.Instance = USART1;
   huart1.Init.BaudRate = baud;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
@@ -147,7 +121,8 @@ void BSP_Usart1Init(uint32_t baud)
   {
     Error_Handler(E_USART1);
   }
-
+	uartEnableRx();
+	//HAL_UART_Receive_IT(&huart1,&aRxBuffer,1);
 }
 /*
 funName	:BSP_SetPriority
