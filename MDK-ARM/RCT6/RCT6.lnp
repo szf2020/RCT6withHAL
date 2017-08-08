@@ -3,7 +3,6 @@
 "rct6\main.o"
 "rct6\stm32f1xx_it.o"
 "rct6\usart.o"
-"rct6\bsp.o"
 "rct6\power.o"
 "rct6\stm32f1xx_hal_dma.o"
 "rct6\stm32f1xx_hal_cortex.o"

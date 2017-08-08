@@ -2,8 +2,6 @@
 #define __usart_H
 
 #include "stm32f1xx_hal.h"
-
-void uartEnableRx(void);
-void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle);
+void initUart(USART_TypeDef *uart);
 
 #endif /*__ usart_H */

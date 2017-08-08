@@ -27,27 +27,29 @@ int fputc(int ch, FILE *f)
 #endif 
 /*
 funName	:enableRx
-input		:void
+input		:*huart
 output	:void
 describe:使能串口接收
 remark	:
 */
-void uartEnableRx(void){
-	/* 使能接收，进入中断回调函数 */
-	HAL_UART_Receive_IT(&huart1,&aRxBuffer,1);
+void uartEnableRx(UART_HandleTypeDef *huart){
+	if(huart == &huart1){
+		/* 使能接收，进入中断回调函数 */
+		HAL_UART_Receive_IT(&huart1,&aRxBuffer,1);
+	}
 }
 /*
 funName	:HAL_UART_RxCpltCallback
-input		:void
+input		:*huart
 output	:void
 describe:串口接收中断回调
 remark	:
 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
-	//if(huart == &huart1){
+	if(huart == &huart1){
 		HAL_UART_Transmit(&huart1,&aRxBuffer,1,0);//反向回传
 		HAL_UART_Receive_IT(&huart1,&aRxBuffer,1);//继续使能串口接收，不这样做串口接收只能进来一次
-	//}
+	}
 }
 /*
 funName	:HAL_UART_MspInit
@@ -76,4 +78,34 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
   }
+}
+/*
+funName	:MX_USART1_UART_Init
+input		:*huart
+				 *uart
+					baud
+output	:HAL_StatusTypeDef
+describe:串口初始化
+remark	:
+*/
+ERROR_STUS uartInit(UART_HandleTypeDef *huart,USART_TypeDef *uart,uint32_t baud)
+{
+  huart->Instance = uart;
+  huart->Init.BaudRate = baud;
+  huart->Init.WordLength = UART_WORDLENGTH_8B;
+  huart->Init.StopBits = UART_STOPBITS_1;
+  huart->Init.Parity = UART_PARITY_NONE;
+  huart->Init.Mode = UART_MODE_TX_RX;
+  huart->Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart->Init.OverSampling = UART_OVERSAMPLING_16;
+  if(HAL_UART_Init(huart) != HAL_OK){
+		return E_UART;
+	}
+	uartEnableRx(huart);
+	return E_OK;
+}
+void initUart(USART_TypeDef *uart){
+	if(uart == USART1){
+		uartInit(&huart1,USART1,115200);
+	}
 }

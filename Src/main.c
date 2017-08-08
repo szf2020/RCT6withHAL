@@ -5,18 +5,17 @@ output	:
 describe:
 remark	:
 */
-#include "stm32f1xx_hal.h"
 #include "usart.h"
-#include "BSP.h"
+#include "power.h"
 
 int main(void)
 {
-	BSP_SetPriorityGroup();
-	BSP_SystemClockConfig();
-	BSP_RccClockEnable();
-	BSP_Usart1Init(115200);
+	setPriorityGroup();
+	systemClockConfig();
+	rccClockEnable();
+	initUart(USART1);
   /* last set */
-  BSP_SetPriority();
+  setPriority();
 	/* pre init set*/
   while (1)
   {
