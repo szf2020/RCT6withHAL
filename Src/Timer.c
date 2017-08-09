@@ -1,9 +1,9 @@
 #include "Timer.h"
 #include "Led.h"
 BOOLEAN pwmRiseFlag = FALSE;//FALSE 变亮，ture 变暗
-uint16_t pwmValue = 0;
-PWM_SPEED pwmSpeed = SPEED4;
-uint16_t timercounter[8] = {0};
+uint16_t pwmValue = 0;//PWM值
+PWM_SPEED pwmSpeed = SPEED4;//呼吸灯速度
+uint16_t timercounter[8] = {0};//定时器计数数组
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
@@ -170,6 +170,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		//定时器8
 	}
 }
+/*
+funName	:timerTest
+input		:void
+output	:void
+describe:测试定时器2-8
+remark	:
+*/
 void timerTest(void){
 	if(machineState.tim2Flag == TRUE){
 		machineState.tim2Flag = FALSE;
@@ -201,13 +208,13 @@ void timerTest(void){
 	}
 }
 /*
-funName	:
-input		:
-output	:
+funName	:initTimer
+input		:timer
+output	:ERROR_STUS
 describe:
-remark	:
+remark	:初始化定时器
 */
-void initTimer(TIM_TypeDef *timer){
+ERROR_STUS initTimer(TIM_TypeDef *timer){
 	if(timer == TIM1){
 		BSP_initTimer(&htim1,TIM1,71,1000);
 	}else if(timer == TIM2){
@@ -225,5 +232,92 @@ void initTimer(TIM_TypeDef *timer){
 	}else if(timer == TIM8){
 		BSP_initTimer(&htim8,TIM8,71,1000);
 	}
+	return E_OK;
+}
+/*
+funName	:stopTimer
+input		:timer
+output	:
+describe:停止某个定时器中断
+remark	:
+*/
+void stopTimer(TIM_TypeDef *timer){
+	if(timer == TIM1){
+		HAL_TIM_Base_Stop_IT(&htim1);
+	}else if(timer == TIM2){
+		HAL_TIM_Base_Stop_IT(&htim2);
+	}else if(timer == TIM3){
+		HAL_TIM_Base_Stop_IT(&htim3);
+	}else if(timer == TIM4){
+		HAL_TIM_Base_Stop_IT(&htim4);
+	}else if(timer == TIM5){
+		HAL_TIM_Base_Stop_IT(&htim5);
+	}else if(timer == TIM6){
+		HAL_TIM_Base_Stop_IT(&htim6);
+	}else if(timer == TIM7){
+		HAL_TIM_Base_Stop_IT(&htim7);
+	}else if(timer == TIM8){
+		HAL_TIM_Base_Stop_IT(&htim8);
+	}
+}
+/*
+funName	:stopAllTimer
+input		:
+output	:
+describe:停止所有定时器中断
+remark	:
+*/
+void stopAllTimer(void){
+	stopTimer(TIM1);
+	stopTimer(TIM2);
+	stopTimer(TIM3);
+	stopTimer(TIM4);
+	stopTimer(TIM5);
+	stopTimer(TIM6);
+	stopTimer(TIM7);
+	stopTimer(TIM8);
+}
+/*
+funName	:startTimer
+input		:timer
+output	:
+describe:启动某个定时器
+remark	:
+*/
+void startTimer(TIM_TypeDef *timer){
+	if(timer == TIM1){
+		HAL_TIM_Base_Start_IT(&htim1);
+	}else if(timer == TIM2){
+		HAL_TIM_Base_Start_IT(&htim2);
+	}else if(timer == TIM3){
+		HAL_TIM_Base_Start_IT(&htim3);
+	}else if(timer == TIM4){
+		HAL_TIM_Base_Start_IT(&htim4);
+	}else if(timer == TIM5){
+		HAL_TIM_Base_Start_IT(&htim5);
+	}else if(timer == TIM6){
+		HAL_TIM_Base_Start_IT(&htim6);
+	}else if(timer == TIM7){
+		HAL_TIM_Base_Start_IT(&htim7);
+	}else if(timer == TIM8){
+		HAL_TIM_Base_Start_IT(&htim8);
+	}
+}
+/*
+funName	:startAllTimer
+input		:
+output	:
+describe:启动所有定时器
+remark	:
+*/
+void startAllTimer(void){
+	startTimer(TIM1);
+	startTimer(TIM2);
+	startTimer(TIM3);
+	startTimer(TIM4);
+	startTimer(TIM5);
+	startTimer(TIM6);
+	startTimer(TIM7);
+	startTimer(TIM8);
 }
 

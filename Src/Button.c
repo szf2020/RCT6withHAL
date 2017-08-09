@@ -16,7 +16,7 @@ void initButton(void){
 	/*Configure GPIO pin : KEY0_EXIT_Pin */
   GPIO_InitStruct.Pin = GPIO_PIN_5;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 	
 	/*Configure GPIO pin : KEY1_Pin */
@@ -41,7 +41,8 @@ void scanKey1(void){
 				if(button.keycounter[1] >= 10){
 					button.keycounter[1] = 0;
 					button.keyflag[1] = 1;
-					printf("key1 press!\n");
+					printf("key1 press!enter stop mode\n");
+					enterStopMode();
 				}
 			}else{
 				button.keycounter[1] = 0;

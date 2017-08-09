@@ -2,7 +2,7 @@
 UART_HandleTypeDef huart1;//串口1
 uint8_t aRxBuffer;//串口接收buffer
 //加入以下代码,支持printf函数,而不需要选择use MicroLIB	  
-#if 1
+#if 0
 #pragma import(__use_no_semihosting)             
 //标准库需要的支持函数                 
 struct __FILE 
@@ -25,6 +25,32 @@ int fputc(int ch, FILE *f)
 	return ch;
 }
 #endif 
+#if 1
+/**
+  * 函数功能: 重定向c库函数printf到DEBUG_USARTx
+  * 输入参数: 无
+  * 返 回 值: 无
+  * 说    明：无
+  */
+int fputc(int ch, FILE *f)
+{
+  HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xffff);
+  return ch;
+}
+
+/**
+  * 函数功能: 重定向c库函数getchar,scanf到DEBUG_USARTx
+  * 输入参数: 无
+  * 返 回 值: 无
+  * 说    明：无
+  */
+int fgetc(FILE * f)
+{
+  uint8_t ch = 0;
+  HAL_UART_Receive(&huart1,&ch, 1, 0xffff);
+  return ch;
+}
+#endif
 /*
 funName	:enableRx
 input		:*huart
@@ -103,6 +129,11 @@ ERROR_STUS uartInit(UART_HandleTypeDef *huart,USART_TypeDef *uart,uint32_t baud)
 	}
 	uartEnableRx(huart);
 	return E_OK;
+}
+void deInitUart(USART_TypeDef *uart){
+	if(uart == USART1){
+		HAL_UART_DeInit(&huart1);
+	}
 }
 /*
 funName	:initUart

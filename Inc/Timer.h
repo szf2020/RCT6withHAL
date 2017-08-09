@@ -14,7 +14,9 @@ typedef enum{
 	SPEED6,
 }PWM_SPEED;
 
-void initTimer(TIM_TypeDef *timer);
+ERROR_STUS initTimer(TIM_TypeDef *timer);
 void ledPwm(void);
 void timerTest(void);
+void stopAllTimer(void);
+void startAllTimer(void);
 #endif

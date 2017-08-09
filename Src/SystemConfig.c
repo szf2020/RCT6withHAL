@@ -195,7 +195,7 @@ output	:NA
 describe:设置优先级组
 remark	:
 */
-void setPriorityGroup(void)
+ERROR_STUS setPriorityGroup(void)
 {
   /* Configure Flash prefetch */
 #if (PREFETCH_ENABLE != 0)
@@ -210,4 +210,5 @@ void setPriorityGroup(void)
 #endif /* PREFETCH_ENABLE */
   /* Set Interrupt Group Priority */
   HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
+	return E_OK;
 }

@@ -6,6 +6,6 @@ ERROR_STUS systemClockConfig(void);
 void rccClockDisable(void);
 void rccClockEnable(void);
 void setPriority(void);
-void setPriorityGroup(void);
+ERROR_STUS setPriorityGroup(void);
 
 #endif
