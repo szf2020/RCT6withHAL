@@ -1,5 +1,6 @@
 #include "Button.h"
 #include "Led.h"
+#include "power.h"
 BUTTON button = {0};
 
 extern MACHINE_STATE machineState;
@@ -107,7 +108,9 @@ remark	:key0Õ‚≤ø÷–∂œ,key1…®√Ë
 uint8_t i,j;
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	if(GPIO_Pin == GPIO_PIN_5){
-		longClickKey0();
+		if(longClickKey0()){
+			enterStandbyMode();
+		}
 		__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_5);
 	}
 }

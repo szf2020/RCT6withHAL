@@ -24,24 +24,25 @@ int main(void)
 	initLed();
 	initButton();
 	initTimer(TIM1);
-	initTimer(TIM2);
-	initTimer(TIM3);
-	initTimer(TIM4);
-	initTimer(TIM5);
-	initTimer(TIM6);
-	initTimer(TIM7);
-	initTimer(TIM8);
-	initIwdg();
+//	initTimer(TIM2);
+//	initTimer(TIM3);
+//	initTimer(TIM4);
+//	initTimer(TIM5);
+//	initTimer(TIM6);
+//	initTimer(TIM7);
+//	initTimer(TIM8);
+	checkPowerOnMode();
+	//enterStandbyMode();
   /* last set */
+	//initIwdg();
   setPriority();
 	/* pre init set*/
-	printf("init\n");
   while (1)
   {
 		scanKey1();
 		ledPwm();
-		timerTest();
-		feedIwdg();
+		//timerTest();
+		//feedIwdg();
   }
  
 

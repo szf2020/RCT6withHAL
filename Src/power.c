@@ -1,4 +1,6 @@
 #include "power.h"
+#include "Timer.h"
+#include "SystemConfig.h"
 IWDG_HandleTypeDef hiwdg;
 /*
 funName	:enterStandbyMode
@@ -8,6 +10,7 @@ describe:进入待机模式
 remark	:只有NRST,WK_UP,IWDG,RTC ALARM能重启
 */
 void enterStandbyMode(void){
+	rccClockDisable();
 /* 禁用所有唤醒源: 唤醒引脚PA0 */
 	HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN1);
 
@@ -19,6 +22,19 @@ void enterStandbyMode(void){
 
 	/* 进入待机模式 */
 	HAL_PWR_EnterSTANDBYMode();
+}
+void checkPowerOnMode(void){
+/* 检测系统是否是从待机模式启动的 */ 
+  if (__HAL_PWR_GET_FLAG(PWR_FLAG_SB) != RESET)
+  {
+    printf("待机唤醒复位\n");
+    /* 清除待机标志位 */
+    __HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);
+  }
+  else
+  {
+    printf("系统是上电启动\n");
+  }
 }
 /*
 funName	:Init_IWDG

@@ -5,5 +5,6 @@
 void enterStandbyMode(void);
 ERROR_STUS initIwdg(void);
 ERROR_STUS feedIwdg(void);
+void checkPowerOnMode(void);
 
 #endif

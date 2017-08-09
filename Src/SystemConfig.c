@@ -88,6 +88,7 @@ void rccClockEnable(void)
 	__HAL_RCC_ADC1_CLK_ENABLE();
 	__HAL_RCC_SPI1_CLK_ENABLE();
 	__HAL_RCC_USART1_CLK_ENABLE();
+	__HAL_RCC_PWR_CLK_ENABLE(); 
 }
 /*
 funName	:rccClockDisable
@@ -117,6 +118,7 @@ void rccClockDisable(void)
 	__HAL_RCC_ADC1_CLK_DISABLE();
 	__HAL_RCC_SPI1_CLK_DISABLE();
 	__HAL_RCC_USART1_CLK_DISABLE();
+	__HAL_RCC_PWR_CLK_DISABLE(); 
 }
 /*
 funName	:setPriority
