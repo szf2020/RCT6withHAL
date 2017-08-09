@@ -14,13 +14,14 @@ ERROR_STUS systemClockConfig(void)
 	
   RCC_OscInitTypeDef RCC_OscInitStruct;
   RCC_ClkInitTypeDef RCC_ClkInitStruct;
+	RCC_PeriphCLKInitTypeDef PeriphClkInit;
 
     /**Initializes the CPU, AHB and APB busses clocks 
     */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSE|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
@@ -43,6 +44,13 @@ ERROR_STUS systemClockConfig(void)
     return E_SYSTEM_CLOCK;
   }
 
+	PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC|RCC_PERIPHCLK_USB;
+  PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
+  PeriphClkInit.UsbClockSelection = RCC_USBCLKSOURCE_PLL_DIV1_5;
+	if(HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK){
+		return E_SYSTEM_CLOCK;
+	}
+	
     /**Configure the Systick interrupt time 
     */
   HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
@@ -62,12 +70,24 @@ remark	:
 void rccClockEnable(void)
 {
 	__HAL_RCC_AFIO_CLK_ENABLE();
-	__HAL_RCC_USART1_CLK_ENABLE();
-	__HAL_RCC_TIM1_CLK_ENABLE();
 	
-  __HAL_RCC_GPIOD_CLK_ENABLE();
+	__HAL_RCC_TIM1_CLK_ENABLE();
+	__HAL_RCC_TIM2_CLK_ENABLE();
+	__HAL_RCC_TIM3_CLK_ENABLE();
+	__HAL_RCC_TIM4_CLK_ENABLE();
+	__HAL_RCC_TIM5_CLK_ENABLE();
+	__HAL_RCC_TIM6_CLK_ENABLE();
+	__HAL_RCC_TIM7_CLK_ENABLE();
+	__HAL_RCC_TIM8_CLK_ENABLE();
+	
   __HAL_RCC_GPIOA_CLK_ENABLE();
+	__HAL_RCC_GPIOB_CLK_ENABLE();
 	__HAL_RCC_GPIOC_CLK_ENABLE();
+	__HAL_RCC_GPIOD_CLK_ENABLE();
+	
+	__HAL_RCC_ADC1_CLK_ENABLE();
+	__HAL_RCC_SPI1_CLK_ENABLE();
+	__HAL_RCC_USART1_CLK_ENABLE();
 }
 /*
 funName	:rccClockDisable
@@ -79,13 +99,24 @@ remark	:
 void rccClockDisable(void)
 {
 	__HAL_RCC_AFIO_CLK_DISABLE();
-	__HAL_RCC_USART1_CLK_DISABLE();
-	__HAL_RCC_TIM1_CLK_DISABLE();
 	
-  __HAL_RCC_GPIOD_CLK_DISABLE();
+	__HAL_RCC_TIM1_CLK_DISABLE();
+	__HAL_RCC_TIM2_CLK_DISABLE();
+	__HAL_RCC_TIM3_CLK_DISABLE();
+	__HAL_RCC_TIM4_CLK_DISABLE();
+	__HAL_RCC_TIM5_CLK_DISABLE();
+	__HAL_RCC_TIM6_CLK_DISABLE();
+	__HAL_RCC_TIM7_CLK_DISABLE();
+	__HAL_RCC_TIM8_CLK_DISABLE();
+	
   __HAL_RCC_GPIOA_CLK_DISABLE();
+	__HAL_RCC_GPIOB_CLK_DISABLE();
 	__HAL_RCC_GPIOC_CLK_DISABLE();
-
+	__HAL_RCC_GPIOD_CLK_DISABLE();
+	
+	__HAL_RCC_ADC1_CLK_DISABLE();
+	__HAL_RCC_SPI1_CLK_DISABLE();
+	__HAL_RCC_USART1_CLK_DISABLE();
 }
 /*
 funName	:setPriority
@@ -120,17 +151,39 @@ void setPriority(void)
   HAL_NVIC_SetPriority(EXTI9_5_IRQn, 2, 0);
   HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 	/* 配置定时器中断优先级并使能 */
-	HAL_NVIC_SetPriority(TIM1_BRK_IRQn, 10, 0);
+	HAL_NVIC_SetPriority(TIM1_BRK_IRQn, 15, 0);
 	HAL_NVIC_EnableIRQ(TIM1_BRK_IRQn);
 	
-	HAL_NVIC_SetPriority(TIM1_UP_IRQn, 10, 0);
+	HAL_NVIC_SetPriority(TIM1_UP_IRQn, 15, 0);
 	HAL_NVIC_EnableIRQ(TIM1_UP_IRQn);
 	
-	HAL_NVIC_SetPriority(TIM1_TRG_COM_IRQn, 10, 0);
+	HAL_NVIC_SetPriority(TIM1_TRG_COM_IRQn, 15, 0);
 	HAL_NVIC_EnableIRQ(TIM1_TRG_COM_IRQn);
 	
-	HAL_NVIC_SetPriority(TIM1_CC_IRQn, 10, 0);
+	HAL_NVIC_SetPriority(TIM1_CC_IRQn, 15, 0);
 	HAL_NVIC_EnableIRQ(TIM1_CC_IRQn);
+	
+	HAL_NVIC_SetPriority(TIM2_IRQn, 13, 0);
+	HAL_NVIC_EnableIRQ(TIM2_IRQn);
+	HAL_NVIC_SetPriority(TIM3_IRQn, 12, 0);
+	HAL_NVIC_EnableIRQ(TIM3_IRQn);
+	HAL_NVIC_SetPriority(TIM4_IRQn, 11, 0);
+	HAL_NVIC_EnableIRQ(TIM4_IRQn);
+	HAL_NVIC_SetPriority(TIM5_IRQn, 10, 0);
+	HAL_NVIC_EnableIRQ(TIM5_IRQn);
+	HAL_NVIC_SetPriority(TIM6_IRQn, 9, 0);
+	HAL_NVIC_EnableIRQ(TIM6_IRQn);
+	HAL_NVIC_SetPriority(TIM7_IRQn, 8, 0);
+	HAL_NVIC_EnableIRQ(TIM7_IRQn);
+	
+	HAL_NVIC_SetPriority(TIM8_BRK_IRQn, 14, 0);
+	HAL_NVIC_EnableIRQ(TIM8_BRK_IRQn);
+	HAL_NVIC_SetPriority(TIM8_UP_IRQn, 14, 0);
+	HAL_NVIC_EnableIRQ(TIM8_UP_IRQn);
+	HAL_NVIC_SetPriority(TIM8_TRG_COM_IRQn, 14, 0);
+	HAL_NVIC_EnableIRQ(TIM8_TRG_COM_IRQn);
+	HAL_NVIC_SetPriority(TIM8_CC_IRQn, 14, 0);
+	HAL_NVIC_EnableIRQ(TIM8_CC_IRQn);
 	
 }
 /*

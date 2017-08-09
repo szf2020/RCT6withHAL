@@ -1,4 +1,5 @@
 #include "power.h"
+IWDG_HandleTypeDef hiwdg;
 /*
 funName	:enterStandbyMode
 input		:void
@@ -18,4 +19,31 @@ void enterStandbyMode(void){
 
 	/* 进入待机模式 */
 	HAL_PWR_EnterSTANDBYMode();
+}
+/*
+funName	:Init_IWDG
+input		:void
+output	:ERROR_STUS
+describe:初始化独立看门狗
+remark	:T = 64 * 4000 / 40000 = 6.4s
+*/
+ERROR_STUS initIwdg(void){
+
+  hiwdg.Instance = IWDG;
+  hiwdg.Init.Prescaler = IWDG_PRESCALER_64;
+  hiwdg.Init.Reload = 4000;
+	if(HAL_IWDG_Init(&hiwdg) != HAL_OK){
+		return E_IWDG;
+	}
+	/* 启动独立看门狗 */
+	if(HAL_IWDG_Start(&hiwdg)!= HAL_OK){
+		return E_IWDG;
+	}
+	return E_OK;
+}
+ERROR_STUS feedIwdg(void){
+	if(HAL_IWDG_Refresh(&hiwdg) != HAL_OK){
+		return E_FEEDIWDG;
+	}
+	return E_OK;
 }

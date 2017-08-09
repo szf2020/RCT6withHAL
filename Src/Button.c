@@ -60,6 +60,13 @@ void scanKey1(void){
 	}
 	
 }
+/*
+funName	:longClickKey0
+input		:void
+output	:uint8_t
+describe:长按key0
+remark	:长按过程中会暂停程序其他操作，只能用于开机启动
+*/
 uint8_t longClickKey0(void)
 {			
 	uint8_t downCnt =0;																				//记录按下的次数

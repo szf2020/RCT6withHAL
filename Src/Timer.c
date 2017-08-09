@@ -141,19 +141,63 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 			machineState.ledPwmFlag = TRUE;
 		}
 	}else if(htim->Instance == TIM2){
+		timercounter[1] ++;
+		machineState.tim2Flag = TRUE;
 		//定时器2
 	}else if(htim->Instance == TIM3){
+		timercounter[2] ++;
+		machineState.tim3Flag = TRUE;
 		//定时器3
 	}else if(htim->Instance == TIM4){
+		timercounter[3] ++;
+		machineState.tim4Flag = TRUE;
 		//定时器4
 	}else if(htim->Instance == TIM5){
+		timercounter[4] ++;
+		machineState.tim5Flag = TRUE;
 		//定时器5
 	}else if(htim->Instance == TIM6){
+		timercounter[5] ++;
+		machineState.tim6Flag = TRUE;
 		//定时器6
 	}else if(htim->Instance == TIM7){
+		timercounter[6] ++;
+		machineState.tim7Flag = TRUE;
 		//定时器7
 	}else if(htim->Instance == TIM8){
+		timercounter[7] ++;
+		machineState.tim8Flag = TRUE;
 		//定时器8
+	}
+}
+void timerTest(void){
+	if(machineState.tim2Flag == TRUE){
+		machineState.tim2Flag = FALSE;
+		printf("TIM2");
+	}
+	if(machineState.tim3Flag == TRUE){
+		machineState.tim3Flag = FALSE;
+		printf("TIM3");
+	}
+	if(machineState.tim4Flag == TRUE){
+		machineState.tim4Flag = FALSE;
+		printf("TIM4");
+	}
+	if(machineState.tim5Flag == TRUE){
+		machineState.tim5Flag = FALSE;
+		printf("TIM5");
+	}
+	if(machineState.tim6Flag == TRUE){
+		machineState.tim6Flag = FALSE;
+		printf("TIM6");
+	}
+	if(machineState.tim7Flag == TRUE){
+		machineState.tim7Flag = FALSE;
+		printf("TIM7");
+	}
+	if(machineState.tim8Flag == TRUE){
+		machineState.tim8Flag = FALSE;
+		printf("TIM8");
 	}
 }
 /*

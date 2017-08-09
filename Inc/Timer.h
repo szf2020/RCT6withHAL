@@ -16,4 +16,5 @@ typedef enum{
 
 void initTimer(TIM_TypeDef *timer);
 void ledPwm(void);
+void timerTest(void);
 #endif
