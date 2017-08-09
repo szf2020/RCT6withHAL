@@ -84,7 +84,7 @@ funName	:MX_USART1_UART_Init
 input		:*huart
 				 *uart
 					baud
-output	:HAL_StatusTypeDef
+output	:ERROR_STUS
 describe:串口初始化
 remark	:
 */
@@ -104,6 +104,13 @@ ERROR_STUS uartInit(UART_HandleTypeDef *huart,USART_TypeDef *uart,uint32_t baud)
 	uartEnableRx(huart);
 	return E_OK;
 }
+/*
+funName	:initUart
+input		:*uart
+output	:void
+describe:初始化其中一个串口
+remark	:
+*/
 void initUart(USART_TypeDef *uart){
 	if(uart == USART1){
 		uartInit(&huart1,USART1,115200);

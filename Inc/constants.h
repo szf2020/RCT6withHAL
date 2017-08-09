@@ -5,4 +5,12 @@ typedef enum{
 	E_SYSTEM_CLOCK,
 	E_UART
 }ERROR_STUS;
+typedef enum{
+	FALSE,
+	TRUE = !FALSE
+}BOOLEAN;
+typedef struct{
+	BOOLEAN buttonFlag;
+	BOOLEAN ledPwmFlag;
+}MACHINE_STATE;
 #endif

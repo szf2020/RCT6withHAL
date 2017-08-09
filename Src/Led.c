@@ -1,5 +1,11 @@
 #include "Led.h"
-
+/*
+funName	:initLed
+input		:void
+output	:void
+describe:≥ı ºªØled1
+remark	:
+*/
 void initLed(void){
 	GPIO_InitTypeDef GPIO_InitStruct;
  /*Configure GPIO pin : LED1_Pin */

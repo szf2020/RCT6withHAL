@@ -2,7 +2,7 @@
 /*
 funName	:SystemClock_Config
 input		:NA
-output	:NA
+output	:ERROR_STUS
 describe:init system clock
 remark	:
 sysclock 72M
@@ -63,8 +63,11 @@ void rccClockEnable(void)
 {
 	__HAL_RCC_AFIO_CLK_ENABLE();
 	__HAL_RCC_USART1_CLK_ENABLE();
+	__HAL_RCC_TIM1_CLK_ENABLE();
+	
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+	__HAL_RCC_GPIOC_CLK_ENABLE();
 }
 /*
 funName	:rccClockDisable
@@ -77,8 +80,11 @@ void rccClockDisable(void)
 {
 	__HAL_RCC_AFIO_CLK_DISABLE();
 	__HAL_RCC_USART1_CLK_DISABLE();
+	__HAL_RCC_TIM1_CLK_DISABLE();
+	
   __HAL_RCC_GPIOD_CLK_DISABLE();
   __HAL_RCC_GPIOA_CLK_DISABLE();
+	__HAL_RCC_GPIOC_CLK_DISABLE();
 
 }
 /*
@@ -109,6 +115,23 @@ void setPriority(void)
 	/* Peripheral interrupt init */
 	HAL_NVIC_SetPriority(USART1_IRQn, 1, 0);
 	HAL_NVIC_EnableIRQ(USART1_IRQn);
+	
+	/* EXTI interrupt init:KEY0(PC5)外部中断*/
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 2, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+	/* 配置定时器中断优先级并使能 */
+	HAL_NVIC_SetPriority(TIM1_BRK_IRQn, 10, 0);
+	HAL_NVIC_EnableIRQ(TIM1_BRK_IRQn);
+	
+	HAL_NVIC_SetPriority(TIM1_UP_IRQn, 10, 0);
+	HAL_NVIC_EnableIRQ(TIM1_UP_IRQn);
+	
+	HAL_NVIC_SetPriority(TIM1_TRG_COM_IRQn, 10, 0);
+	HAL_NVIC_EnableIRQ(TIM1_TRG_COM_IRQn);
+	
+	HAL_NVIC_SetPriority(TIM1_CC_IRQn, 10, 0);
+	HAL_NVIC_EnableIRQ(TIM1_CC_IRQn);
+	
 }
 /*
 funName	:setPriorityGroup
