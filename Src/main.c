@@ -56,7 +56,7 @@ int main(void)
 //		LCD_Fill(60,60,80,80,BLUE);
 //		LCD_ShowxNum(70,70,4294967296,10,12,0);
 		
-//		LCD_ShowString(30,40,300,44,24,"Mini STM32 ^_^");	
+		LCD_ShowString(30,40,12 * 10,12,24,"DRKON");	
 		//timerTest();
 		//feedIwdg();
   }

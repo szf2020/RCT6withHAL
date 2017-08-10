@@ -81,6 +81,7 @@ extern uint16_t BACK_COLOR; //背景颜色.默认为白色
 
 void initTFTLCD(void);
 void LCD_Clear(uint16_t color);
+void setLcdDir(uint8_t dir);
 void LCD_ShowString(uint16_t x,uint16_t y,uint16_t width,uint16_t height,uint8_t size,uint8_t *p);
 void LCD_DrawPoint(uint16_t x,uint16_t y);
 uint16_t LCD_ReadPoint(uint16_t x,uint16_t y);
