@@ -1,8 +1,8 @@
 #include "Timer.h"
 #include "Led.h"
 BOOLEAN pwmRiseFlag = FALSE;//FALSE 变亮，ture 变暗
-uint16_t pwmValue = 0;//PWM值
-PWM_SPEED pwmSpeed = SPEED4;//呼吸灯速度
+int16_t pwmValue = 0;//PWM值
+PWM_SPEED pwmSpeed = SPEED3;//呼吸灯速度
 uint16_t timercounter[8] = {0};//定时器计数数组
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
@@ -111,15 +111,15 @@ void ledPwm(void){
 	if(machineState.ledPwmFlag == TRUE){
 		machineState.ledPwmFlag = FALSE;
 		if(pwmRiseFlag == FALSE){
-			if(pwmValue < PWM_MAX){
-				pwmValue += pwmSpeed;
-			}else{
+			pwmValue += pwmSpeed;
+			if(pwmValue > PWM_MAX){
+				pwmValue = PWM_MAX;
 				pwmRiseFlag = TRUE;
 			}
 		}else{
-			if(pwmValue > 0){
-				pwmValue -= pwmSpeed;
-			}else{
+			pwmValue -= pwmSpeed;
+			if(pwmValue < 0){
+				pwmValue = 0;
 				pwmRiseFlag = FALSE;
 			}
 		}

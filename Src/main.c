@@ -11,6 +11,7 @@ remark	:
 #include "SystemConfig.h"
 #include "Button.h"
 #include "Timer.h"
+#include "lcd.h"
 MACHINE_STATE machineState;
 ERROR_STUS errorStus = E_OK;
 int main(void)
@@ -31,16 +32,31 @@ int main(void)
 	initTimer(TIM6);
 	initTimer(TIM7);
 	initTimer(TIM8);
+	initTFTLCD();
   /* last set */
 	//initIwdg();
   setPriority();
 	/* pre init set*/
 	checkPowerMode();
 	//enterSleepMode();
+//	POINT_COLOR = RED;
+//	LCD_Set_Window(100,100,100,60);
+//	POINT_COLOR = BLUE;
   while (1)
   {
 		scanKey1();
 		ledPwm();
+		//LCD_Clear(GREEN);
+		//printf("1111");
+//		LCD_DrawPoint(10,10);
+//		printf("%x\n",LCD_ReadPoint(10,10));
+//		LCD_DrawLine(20,20,100,100);
+//		LCD_DrawRectangle(40,40,60,60);
+//		LCD_Draw_Circle(100,100,50);
+//		LCD_Fill(60,60,80,80,BLUE);
+//		LCD_ShowxNum(70,70,4294967296,10,12,0);
+		
+//		LCD_ShowString(30,40,300,44,24,"Mini STM32 ^_^");	
 		//timerTest();
 		//feedIwdg();
   }

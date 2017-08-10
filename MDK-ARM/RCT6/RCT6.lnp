@@ -8,6 +8,7 @@
 "rct6\led.o"
 "rct6\systemconfig.o"
 "rct6\timer.o"
+"rct6\lcd.o"
 "rct6\stm32f1xx_hal_dma.o"
 "rct6\stm32f1xx_hal_cortex.o"
 "rct6\stm32f1xx_hal_gpio_ex.o"
