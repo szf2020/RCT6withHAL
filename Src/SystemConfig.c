@@ -89,6 +89,8 @@ void rccClockEnable(void)
 	__HAL_RCC_SPI1_CLK_ENABLE();
 	__HAL_RCC_USART1_CLK_ENABLE();
 	__HAL_RCC_PWR_CLK_ENABLE(); 
+	__HAL_RCC_BKP_CLK_ENABLE();
+	__HAL_RCC_RTC_ENABLE();/* 使能RTC外设时钟 */
 }
 /*
 funName	:rccClockDisable
@@ -118,7 +120,9 @@ void rccClockDisable(void)
 	__HAL_RCC_ADC1_CLK_DISABLE();
 	__HAL_RCC_SPI1_CLK_DISABLE();
 	__HAL_RCC_USART1_CLK_DISABLE();
-	__HAL_RCC_PWR_CLK_DISABLE(); 
+	__HAL_RCC_PWR_CLK_DISABLE();
+	__HAL_RCC_BKP_CLK_DISABLE();
+	__HAL_RCC_RTC_DISABLE();
 }
 /*
 funName	:setPriority
@@ -186,6 +190,9 @@ void setPriority(void)
 	HAL_NVIC_EnableIRQ(TIM8_TRG_COM_IRQn);
 	HAL_NVIC_SetPriority(TIM8_CC_IRQn, 14, 0);
 	HAL_NVIC_EnableIRQ(TIM8_CC_IRQn);
+	
+	HAL_NVIC_SetPriority(RTC_Alarm_IRQn, 14, 0);
+	HAL_NVIC_EnableIRQ(RTC_Alarm_IRQn);
 	
 }
 /*

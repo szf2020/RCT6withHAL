@@ -427,7 +427,9 @@ HAL_StatusTypeDef HAL_RTC_DeInit(RTC_HandleTypeDef *hrtc)
 __weak void HAL_RTC_MspInit(RTC_HandleTypeDef* hrtc)
 {
   /* Prevent unused argument(s) compilation warning */
-  UNUSED(hrtc);
+  if(hrtc->Instance==RTC){
+		HAL_PWR_EnableBkUpAccess();//使能获取备份域
+	}
   /* NOTE : This function Should not be modified, when the callback is needed,
             the HAL_RTC_MspInit could be implemented in the user file
    */ 

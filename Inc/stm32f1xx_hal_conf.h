@@ -39,7 +39,6 @@
 #ifdef __cplusplus
  extern "C" {
 #endif
-
 #include "constants.h"
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/

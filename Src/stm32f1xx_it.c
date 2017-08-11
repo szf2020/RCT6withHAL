@@ -46,6 +46,8 @@ extern TIM_HandleTypeDef htim5;
 extern TIM_HandleTypeDef htim6;
 extern TIM_HandleTypeDef htim7;
 extern TIM_HandleTypeDef htim8;
+extern RTC_HandleTypeDef hrtc;
+
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -409,7 +411,18 @@ void TIM7_IRQHandler(void)
 
   /* USER CODE END TIM7_IRQn 1 */
 }
+/**
+* @brief This function handles RTC global interrupt.
+*/
+void RTC_Alarm_IRQHandler(void)
+{
+  /* USER CODE BEGIN RTC_IRQn 0 */
 
+  /* USER CODE END RTC_IRQn 0 */
+  HAL_RTC_AlarmIRQHandler(&hrtc);
+  /* USER CODE BEGIN RTC_IRQn 1 */
+  /* USER CODE END RTC_IRQn 1 */
+}
 
 /* USER CODE BEGIN 1 */
 

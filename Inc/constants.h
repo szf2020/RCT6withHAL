@@ -1,11 +1,14 @@
 #ifndef _CONSTANTS_H_
 #define _CONSTANTS_H_
+#include "stm32f1xx_hal.h"
 typedef enum{
 	E_OK,
 	E_SYSTEM_CLOCK,
 	E_UART,
 	E_IWDG,
 	E_FEEDIWDG,
+	E_RTC,
+	E_RTCALARM,
 }ERROR_STUS;
 typedef enum{
 	FALSE,
@@ -21,5 +24,6 @@ typedef struct{
 	BOOLEAN tim6Flag;
 	BOOLEAN tim7Flag;
 	BOOLEAN tim8Flag;
+	BOOLEAN RTCFlag;
 }MACHINE_STATE;
 #endif

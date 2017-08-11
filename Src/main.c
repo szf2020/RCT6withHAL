@@ -14,6 +14,8 @@ remark	:
 #include "lcd.h"
 MACHINE_STATE machineState;
 ERROR_STUS errorStus = E_OK;
+RTC_TIME rtcTime;
+uint8_t test[100] = {0};
 int main(void)
 {
 	errorStus = setPriorityGroup();
@@ -33,6 +35,8 @@ int main(void)
 	initTimer(TIM7);
 	initTimer(TIM8);
 	initTFTLCD();
+	initRTC();
+	
   /* last set */
 	//initIwdg();
   setPriority();
@@ -46,6 +50,10 @@ int main(void)
   {
 		scanKey1();
 		ledPwm();
+		rtcTime = getRTCDateAndTime();
+		
+		sprintf(test,"%d:%d:%d:%d--%d:%d:%d--%d:%d:%d\n",rtcTime.year,rtcTime.month,rtcTime.day,rtcTime.week,rtcTime.hour,rtcTime.minute,rtcTime.second,rtcTime.alarmHour,rtcTime.alarmMinute,rtcTime.alarmSecond);
+		printf("%s",test);
 		//LCD_Clear(GREEN);
 		//printf("1111");
 //		LCD_DrawPoint(10,10);
@@ -56,7 +64,7 @@ int main(void)
 //		LCD_Fill(60,60,80,80,BLUE);
 //		LCD_ShowxNum(70,70,4294967296,10,12,0);
 		
-		LCD_ShowString(30,40,12 * 10,12,24,"DRKON");	
+			
 		//timerTest();
 		//feedIwdg();
   }

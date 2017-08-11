@@ -4,6 +4,12 @@
 #include "Led.h"
 #include "usart.h"
 IWDG_HandleTypeDef hiwdg;
+RTC_HandleTypeDef hrtc;
+RTC_DateTypeDef sDate;
+RTC_TimeTypeDef sTime;
+RTC_AlarmTypeDef RTC_alarm;
+
+extern MACHINE_STATE machineState;
 
 void checkPowerMode(void){
 	 /* 检测系统是否是从待机模式启动的 */ 
@@ -127,3 +133,144 @@ ERROR_STUS feedIwdg(void){
 	}
 	return E_OK;
 }
+/*
+funName	:setRTCDate
+input		:
+output	:ERROR_STUS
+describe:设置RTC日期
+remark	:
+*/
+ERROR_STUS setRTCDate(uint8_t year,uint8_t month,uint8_t day,uint8_t week){
+	sDate.Year = year;
+	sDate.Month = month;
+	sDate.Date = day;
+	sDate.WeekDay = week;
+	if(HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BIN) != HAL_OK){
+		return E_RTC;
+	}
+	return E_OK;
+}
+/*
+funName	:setRTCTime
+input		:
+output	:ERROR_STUS
+describe:设置RTC时间
+remark	:
+*/
+ERROR_STUS setRTCTime(uint8_t hour,uint8_t minute,uint8_t second){
+	sTime.Hours = hour;
+	sTime.Minutes = minute;
+	sTime.Seconds = second;
+	if(HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BIN) != HAL_OK){
+		return E_RTC;
+	}
+	return E_OK;
+}
+/*
+funName	:getRTCDateAndTime
+input		:
+output	:RTC_TIME
+describe:获取RTC日期和时间
+remark	:
+*/
+RTC_TIME getRTCDateAndTime(void){
+	RTC_TIME rtcTime;
+	
+	HAL_RTC_GetTime(&hrtc, &sTime,RTC_FORMAT_BIN);
+	
+	HAL_RTC_GetDate(&hrtc, &sDate,RTC_FORMAT_BIN);
+	
+	HAL_RTC_GetAlarm(&hrtc,&RTC_alarm,RTC_ALARM_A,RTC_FORMAT_BIN);
+	
+	rtcTime.year 	= sDate.Year;
+	rtcTime.month = sDate.Month;
+	rtcTime.day 	= sDate.Date;
+	rtcTime.week 	= sDate.WeekDay;
+	
+	rtcTime.hour = sTime.Hours;
+	rtcTime.minute = sTime.Minutes;
+	rtcTime.second = sTime.Seconds;
+	
+	rtcTime.alarmHour = RTC_alarm.AlarmTime.Hours;
+	rtcTime.alarmMinute = RTC_alarm.AlarmTime.Minutes;
+	rtcTime.alarmSecond = RTC_alarm.AlarmTime.Seconds;
+	
+	return rtcTime;
+}
+/*
+funName	:setRTCAlarm
+input		:
+output	:ERROR_STUS
+describe:设置RTC闹钟
+remark	:
+*/
+ERROR_STUS setRTCAlarm(uint8_t hour,uint8_t minute,uint8_t second){
+	
+	
+	getRTCDateAndTime();
+	
+	RTC_alarm.Alarm = RTC_ALARM_A;
+	RTC_alarm.AlarmTime.Hours = sTime.Hours + hour;
+	RTC_alarm.AlarmTime.Minutes = sTime.Minutes + minute;
+	RTC_alarm.AlarmTime.Seconds = sTime.Seconds + second;
+	
+	if(HAL_RTC_SetAlarm_IT(&hrtc, &RTC_alarm, RTC_FORMAT_BIN) != HAL_OK){
+		return E_RTCALARM;
+	}
+	return E_OK;
+}
+/*
+funName	:RTCAlarmDisable
+input		:
+output	:ERROR_STUS
+describe:停止RTC闹钟
+remark	:
+*/
+ERROR_STUS RTCAlarmDisable(void){
+	if(HAL_RTC_DeactivateAlarm(&hrtc, RTC_ALARM_A) != HAL_OK){
+		return E_RTCALARM;
+	}
+	return E_OK;
+}
+/*
+funName	:initRTC
+input		:
+output	:ERROR_STUS
+describe:初始化RTC
+remark	:
+*/
+ERROR_STUS initRTC(void){
+	
+	hrtc.Instance = RTC;
+  hrtc.Init.AsynchPrediv = RTC_AUTO_1_SECOND;
+  hrtc.Init.OutPut = RTC_OUTPUTSOURCE_NONE;
+	if (HAL_RTC_Init(&hrtc) != HAL_OK){
+		return E_RTC;
+	}
+	if(HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR1) != 0x5448){
+		if(setRTCDate(17,RTC_MONTH_AUGUST,11,RTC_WEEKDAY_FRIDAY) != E_OK){
+			return E_RTC;
+		}
+		if(setRTCTime(0,0,0) != E_OK){
+			return E_RTC;
+		}
+	}else{
+		__HAL_RCC_CLEAR_RESET_FLAGS();
+	}
+	if(setRTCAlarm(0,0,3) != E_OK){
+		return E_RTCALARM;
+	}
+	return E_OK;
+}
+/*
+funName	:HAL_RTC_AlarmAEventCallback
+input		:
+output	:void
+describe:RTC闹钟中断回调
+remark	:
+*/
+void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc){
+	machineState.RTCFlag = TRUE;
+	LED1_TOGGLE();
+}
+
