@@ -54,10 +54,10 @@ int main(void)
 		scanKey1();
 		ledPwm();
 //		rtcTime = getRTCDateAndTime();
-		Current_Temperature[0] = checkChipTemp();
-		Current_Temperature[1] = ADCPA1transform();
-		printf("%d->%3f\n",ADC_ConvertedValue[0],Current_Temperature[0]);
-		printf("%d->%3f\n",ADC_ConvertedValue[1],Current_Temperature[1]);
+//		Current_Temperature[0] = checkChipTemp();
+//		Current_Temperature[1] = ADCPA1transform();
+//		printf("%d->%3f\n",ADC_ConvertedValue[0],Current_Temperature[0]);
+//		printf("%d->%3f\n",ADC_ConvertedValue[1],Current_Temperature[1]);
 //		sprintf(test,"%d:%d:%d:%d--%d:%d:%d--%d:%d:%d\n",rtcTime.year,rtcTime.month,rtcTime.day,rtcTime.week,rtcTime.hour,rtcTime.minute,rtcTime.second,rtcTime.alarmHour,rtcTime.alarmMinute,rtcTime.alarmSecond);
 //		printf("%s",test);
 		
