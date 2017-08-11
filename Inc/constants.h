@@ -9,6 +9,7 @@ typedef enum{
 	E_FEEDIWDG,
 	E_RTC,
 	E_RTCALARM,
+	E_ADCDMA,
 }ERROR_STUS;
 typedef enum{
 	FALSE,

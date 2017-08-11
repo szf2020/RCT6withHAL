@@ -2,7 +2,7 @@
 UART_HandleTypeDef huart1;//串口1
 uint8_t aRxBuffer;//串口接收buffer
 //加入以下代码,支持printf函数,而不需要选择use MicroLIB	  
-#if 0
+#if 1
 #pragma import(__use_no_semihosting)             
 //标准库需要的支持函数                 
 struct __FILE 
@@ -25,7 +25,7 @@ int fputc(int ch, FILE *f)
 	return ch;
 }
 #endif 
-#if 1
+#if 0
 /**
   * 函数功能: 重定向c库函数printf到DEBUG_USARTx
   * 输入参数: 无

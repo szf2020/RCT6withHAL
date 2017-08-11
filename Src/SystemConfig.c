@@ -91,6 +91,8 @@ void rccClockEnable(void)
 	__HAL_RCC_PWR_CLK_ENABLE(); 
 	__HAL_RCC_BKP_CLK_ENABLE();
 	__HAL_RCC_RTC_ENABLE();/* 使能RTC外设时钟 */
+	__HAL_RCC_ADC1_CLK_ENABLE();
+	__HAL_RCC_DMA1_CLK_ENABLE();
 }
 /*
 funName	:rccClockDisable
@@ -123,6 +125,8 @@ void rccClockDisable(void)
 	__HAL_RCC_PWR_CLK_DISABLE();
 	__HAL_RCC_BKP_CLK_DISABLE();
 	__HAL_RCC_RTC_DISABLE();
+	__HAL_RCC_ADC1_CLK_DISABLE();
+	__HAL_RCC_DMA1_CLK_DISABLE();
 }
 /*
 funName	:setPriority

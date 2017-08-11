@@ -1,10 +1,10 @@
 Dependencies for Project 'RCT6', Target 'RCT6': (DO NOT MODIFY !)
 F (startup_stm32f103xe.s)(0x598815EE)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include--pd "__UVISION_VERSION SETA 520" --pd "_RTE_ SETA 1" --pd "STM32F10X_HD SETA 1"--list startup_stm32f103xe.lst --xref -o rct6\startup_stm32f103xe.o --depend rct6\startup_stm32f103xe.d)
-F (../Src/main.c)(0x598D57F4)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\main.o --omf_browse rct6\main.crf --depend rct6\main.d)
+F (../Src/main.c)(0x598D721F)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\main.o --omf_browse rct6\main.crf --depend rct6\main.d)
 I (../Inc/usart.h)(0x598AC7A6)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -45,10 +45,11 @@ I (../Inc/SystemConfig.h)(0x598ACAE5)
 I (../Inc/Button.h)(0x59897AEB)
 I (../Inc/Timer.h)(0x598ACABC)
 I (../Inc/lcd.h)(0x598C254E)
-F (../Src/stm32f1xx_it.c)(0x598D5758)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_it.o --omf_browse rct6\stm32f1xx_it.crf --depend rct6\stm32f1xx_it.d)
+I (../Inc/AdcDma.h)(0x598D7204)
+F (../Src/stm32f1xx_it.c)(0x598D686C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_it.o --omf_browse rct6\stm32f1xx_it.crf --depend rct6\stm32f1xx_it.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -85,11 +86,11 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_usart.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_it.h)(0x598815E9)
 I (../Inc/Led.h)(0x59891EFE)
-F (../Src/usart.c)(0x598AD166)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\usart.o --omf_browse rct6\usart.crf --depend rct6\usart.d)
+F (../Src/usart.c)(0x598D69AF)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\usart.o --omf_browse rct6\usart.crf --depend rct6\usart.d)
 I (../Inc/usart.h)(0x598AC7A6)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -124,11 +125,11 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_usart.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
-F (..\Src\power.c)(0x598D5842)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\power.o --omf_browse rct6\power.crf --depend rct6\power.d)
+F (..\Src\power.c)(0x598D5974)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\power.o --omf_browse rct6\power.crf --depend rct6\power.d)
 I (../Inc/power.h)(0x598D12F1)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -171,7 +172,7 @@ F (..\Src\Button.c)(0x598AD6D1)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=in
 I (../Inc/Button.h)(0x59897AEB)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -212,7 +213,7 @@ F (..\Src\Led.c)(0x5989202B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=inter
 I (../Inc/Led.h)(0x59891EFE)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -247,11 +248,11 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_usart.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
-F (..\Src\SystemConfig.c)(0x598D5829)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\systemconfig.o --omf_browse rct6\systemconfig.crf --depend rct6\systemconfig.d)
+F (..\Src\SystemConfig.c)(0x598D686C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\systemconfig.o --omf_browse rct6\systemconfig.crf --depend rct6\systemconfig.d)
 I (../Inc/SystemConfig.h)(0x598ACAE5)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -290,7 +291,7 @@ F (..\Src\Timer.c)(0x598BADE8)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=int
 I (../Inc/Timer.h)(0x598ACABC)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -330,7 +331,7 @@ F (..\Src\lcd.c)(0x598C25B2)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=inter
 I (../Inc/lcd.h)(0x598C254E)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -366,10 +367,49 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_usart.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 I (../Inc/font.h)(0x52C52FE7)
+F (..\Src\AdcDma.c)(0x598D72AC)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\adcdma.o --omf_browse rct6\adcdma.crf --depend rct6\adcdma.d)
+I (../Inc/AdcDma.h)(0x598D7204)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
+I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
+I (../Inc/constants.h)(0x598D5D6B)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h)(0x58B7D849)
+I (../Drivers/CMSIS/Include/core_cm3.h)(0x58B7D84D)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x58F075D6)
+I (../Drivers/CMSIS/Include/core_cmInstr.h)(0x58B7D84D)
+I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x58B7D84D)
+I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x58B7D84D)
+I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h)(0x58B7D849)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x58B7D84D)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x56FE42DE)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can_ex.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_iwdg.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rtc_ex.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_usart.h)(0x58B7D84D)
+I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_dma.o --omf_browse rct6\stm32f1xx_hal_dma.crf --depend rct6\stm32f1xx_hal_dma.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -407,7 +447,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_cortex.o --omf_browse rct6\stm32f1xx_hal_cortex.crf --depend rct6\stm32f1xx_hal_cortex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -445,7 +485,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_gpio_ex.o --omf_browse rct6\stm32f1xx_hal_gpio_ex.crf --depend rct6\stm32f1xx_hal_gpio_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -483,7 +523,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_rcc_ex.o --omf_browse rct6\stm32f1xx_hal_rcc_ex.crf --depend rct6\stm32f1xx_hal_rcc_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -521,7 +561,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_flash_ex.o --omf_browse rct6\stm32f1xx_hal_flash_ex.crf --depend rct6\stm32f1xx_hal_flash_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -559,7 +599,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_rcc.o --omf_browse rct6\stm32f1xx_hal_rcc.crf --depend rct6\stm32f1xx_hal_rcc.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -597,7 +637,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_flash.o --omf_browse rct6\stm32f1xx_hal_flash.crf --depend rct6\stm32f1xx_hal_flash.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -635,7 +675,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_gpio.o --omf_browse rct6\stm32f1xx_hal_gpio.crf --depend rct6\stm32f1xx_hal_gpio.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -673,7 +713,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c)(0x59890D03)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_uart.o --omf_browse rct6\stm32f1xx_hal_uart.crf --depend rct6\stm32f1xx_hal_uart.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -711,7 +751,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c)(0x5988288D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal.o --omf_browse rct6\stm32f1xx_hal.crf --depend rct6\stm32f1xx_hal.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -749,7 +789,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_pwr.o --omf_browse rct6\stm32f1xx_hal_pwr.crf --depend rct6\stm32f1xx_hal_pwr.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -787,7 +827,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_adc.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_adc.o --omf_browse rct6\stm32f1xx_hal_adc.crf --depend rct6\stm32f1xx_hal_adc.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -825,7 +865,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_adc_ex.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_adc_ex.o --omf_browse rct6\stm32f1xx_hal_adc_ex.crf --depend rct6\stm32f1xx_hal_adc_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -863,7 +903,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_can.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_can.o --omf_browse rct6\stm32f1xx_hal_can.crf --depend rct6\stm32f1xx_hal_can.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -901,7 +941,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_cec.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_cec.o --omf_browse rct6\stm32f1xx_hal_cec.crf --depend rct6\stm32f1xx_hal_cec.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -939,7 +979,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_crc.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_crc.o --omf_browse rct6\stm32f1xx_hal_crc.crf --depend rct6\stm32f1xx_hal_crc.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -977,7 +1017,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_dac.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_dac.o --omf_browse rct6\stm32f1xx_hal_dac.crf --depend rct6\stm32f1xx_hal_dac.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1015,7 +1055,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_dac_ex.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_dac_ex.o --omf_browse rct6\stm32f1xx_hal_dac_ex.crf --depend rct6\stm32f1xx_hal_dac_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1053,7 +1093,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_eth.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_eth.o --omf_browse rct6\stm32f1xx_hal_eth.crf --depend rct6\stm32f1xx_hal_eth.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1091,7 +1131,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_hcd.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_hcd.o --omf_browse rct6\stm32f1xx_hal_hcd.crf --depend rct6\stm32f1xx_hal_hcd.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1129,7 +1169,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_i2c.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_i2c.o --omf_browse rct6\stm32f1xx_hal_i2c.crf --depend rct6\stm32f1xx_hal_i2c.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1167,7 +1207,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_i2s.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_i2s.o --omf_browse rct6\stm32f1xx_hal_i2s.crf --depend rct6\stm32f1xx_hal_i2s.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1205,7 +1245,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_irda.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_irda.o --omf_browse rct6\stm32f1xx_hal_irda.crf --depend rct6\stm32f1xx_hal_irda.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1243,7 +1283,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_iwdg.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_iwdg.o --omf_browse rct6\stm32f1xx_hal_iwdg.crf --depend rct6\stm32f1xx_hal_iwdg.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1281,7 +1321,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_msp_template.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_msp_template.o --omf_browse rct6\stm32f1xx_hal_msp_template.crf --depend rct6\stm32f1xx_hal_msp_template.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1319,7 +1359,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_nand.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_nand.o --omf_browse rct6\stm32f1xx_hal_nand.crf --depend rct6\stm32f1xx_hal_nand.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1357,7 +1397,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_nor.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_nor.o --omf_browse rct6\stm32f1xx_hal_nor.crf --depend rct6\stm32f1xx_hal_nor.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1395,7 +1435,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_pccard.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_pccard.o --omf_browse rct6\stm32f1xx_hal_pccard.crf --depend rct6\stm32f1xx_hal_pccard.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1433,7 +1473,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_pcd.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_pcd.o --omf_browse rct6\stm32f1xx_hal_pcd.crf --depend rct6\stm32f1xx_hal_pcd.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1471,7 +1511,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_pcd_ex.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_pcd_ex.o --omf_browse rct6\stm32f1xx_hal_pcd_ex.crf --depend rct6\stm32f1xx_hal_pcd_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1509,7 +1549,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rtc.c)(0x598D0129)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_rtc.o --omf_browse rct6\stm32f1xx_hal_rtc.crf --depend rct6\stm32f1xx_hal_rtc.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1547,7 +1587,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_rtc_ex.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_rtc_ex.o --omf_browse rct6\stm32f1xx_hal_rtc_ex.crf --depend rct6\stm32f1xx_hal_rtc_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1585,7 +1625,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_sd.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_sd.o --omf_browse rct6\stm32f1xx_hal_sd.crf --depend rct6\stm32f1xx_hal_sd.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1623,7 +1663,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_smartcard.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_smartcard.o --omf_browse rct6\stm32f1xx_hal_smartcard.crf --depend rct6\stm32f1xx_hal_smartcard.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1661,7 +1701,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_spi.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_spi.o --omf_browse rct6\stm32f1xx_hal_spi.crf --depend rct6\stm32f1xx_hal_spi.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1699,7 +1739,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_spi_ex.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_spi_ex.o --omf_browse rct6\stm32f1xx_hal_spi_ex.crf --depend rct6\stm32f1xx_hal_spi_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1737,7 +1777,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_sram.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_sram.o --omf_browse rct6\stm32f1xx_hal_sram.crf --depend rct6\stm32f1xx_hal_sram.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1775,7 +1815,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_tim.o --omf_browse rct6\stm32f1xx_hal_tim.crf --depend rct6\stm32f1xx_hal_tim.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1813,7 +1853,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_tim_ex.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_tim_ex.o --omf_browse rct6\stm32f1xx_hal_tim_ex.crf --depend rct6\stm32f1xx_hal_tim_ex.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1851,7 +1891,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_usart.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_usart.o --omf_browse rct6\stm32f1xx_hal_usart.crf --depend rct6\stm32f1xx_hal_usart.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1889,7 +1929,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_hal_wwdg.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_hal_wwdg.o --omf_browse rct6\stm32f1xx_hal_wwdg.crf --depend rct6\stm32f1xx_hal_wwdg.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1927,7 +1967,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_fsmc.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_ll_fsmc.o --omf_browse rct6\stm32f1xx_ll_fsmc.crf --depend rct6\stm32f1xx_ll_fsmc.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -1965,7 +2005,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_sdmmc.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_ll_sdmmc.o --omf_browse rct6\stm32f1xx_ll_sdmmc.crf --depend rct6\stm32f1xx_ll_sdmmc.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -2003,7 +2043,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_wwdg.h)(0x58B7D84D)
 F (..\Drivers\STM32F1xx_HAL_Driver\Src\stm32f1xx_ll_usb.c)(0x58B7D84D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include --C99-I C:\许统辉\201708\RCT6\MDK-ARM\RTE-I C:\Keil_v5\ARM\PACK\ARM\CMSIS\4.5.0\CMSIS\Include-I C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0\Device\Include-D__UVISION_VERSION="520" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE-o rct6\stm32f1xx_ll_usb.o --omf_browse rct6\stm32f1xx_ll_usb.crf --depend rct6\stm32f1xx_ll_usb.d)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h)(0x58B7D849)
@@ -2049,7 +2089,7 @@ I (../Drivers/CMSIS/Include/core_cmFunc.h)(0x58B7D84D)
 I (../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h)(0x58B7D849)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x58B7D84D)
 I (../Inc/stm32f1xx_hal_conf.h)(0x598D12F1)
-I (../Inc/constants.h)(0x598D1A85)
+I (../Inc/constants.h)(0x598D5D6B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h)(0x58B7D84D)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h)(0x58B7D84D)
