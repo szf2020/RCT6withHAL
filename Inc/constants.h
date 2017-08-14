@@ -10,6 +10,7 @@ typedef enum{
 	E_RTC,
 	E_RTCALARM,
 	E_ADCDMA,
+	E_IIC,
 }ERROR_STUS;
 typedef enum{
 	FALSE,
@@ -26,5 +27,6 @@ typedef struct{
 	BOOLEAN tim7Flag;
 	BOOLEAN tim8Flag;
 	BOOLEAN RTCFlag;
+	BOOLEAN iicFlag;
 }MACHINE_STATE;
 #endif

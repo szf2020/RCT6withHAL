@@ -13,6 +13,7 @@ remark	:
 #include "Timer.h"
 #include "lcd.h"
 #include "AdcDma.h"
+#include "Iic.h"
 MACHINE_STATE machineState;
 ERROR_STUS errorStus = E_OK;
 RTC_TIME rtcTime;
@@ -40,6 +41,10 @@ int main(void)
 	initTFTLCD();
 	initRTC();
 	initADC1();
+	errorStus = initIic();
+	if(errorStus == E_OK){
+		iicTest();
+	}
   /* last set */
 	//initIwdg();
   setPriority();
