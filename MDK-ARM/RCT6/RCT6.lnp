@@ -11,6 +11,8 @@
 "rct6\lcd.o"
 "rct6\adcdma.o"
 "rct6\iic.o"
+"rct6\spi.o"
+"rct6\util.o"
 "rct6\stm32f1xx_hal_dma.o"
 "rct6\stm32f1xx_hal_cortex.o"
 "rct6\stm32f1xx_hal_gpio_ex.o"

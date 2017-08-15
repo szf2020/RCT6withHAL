@@ -14,12 +14,15 @@ remark	:
 #include "lcd.h"
 #include "AdcDma.h"
 #include "Iic.h"
+#include "Spi.h"
 MACHINE_STATE machineState;
 ERROR_STUS errorStus = E_OK;
 RTC_TIME rtcTime;
 /* 用于保存转换计算后的电压值 */	 
 float Current_Temperature[2];
 uint8_t test[100] = {0};
+uint32_t FlashID = 0;
+uint32_t DeviceID = 0;
 int main(void)
 {
 	errorStus = setPriorityGroup();
@@ -42,9 +45,16 @@ int main(void)
 	initRTC();
 	initADC1();
 	errorStus = initIic();
-	if(errorStus == E_OK){
-		iicTest();
-	}
+	
+	initSpix(SPI1);
+	DeviceID = spiFlashReadDeviceID();
+	HAL_Delay(100);
+	FlashID = spiFlashReadID();
+	printf("FlashID is 0x%X,  Manufacturer Device ID is 0x%X\n", FlashID, DeviceID);
+	spiTest();
+//	if(errorStus == E_OK){
+//		iicTest();
+//	}
   /* last set */
 	//initIwdg();
   setPriority();

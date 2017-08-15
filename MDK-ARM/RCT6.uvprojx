@@ -437,6 +437,21 @@
               <FileType>1</FileType>
               <FilePath>..\Src\AdcDma.c</FilePath>
             </File>
+            <File>
+              <FileName>Iic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Iic.c</FilePath>
+            </File>
+            <File>
+              <FileName>Spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>Util.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Util.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
