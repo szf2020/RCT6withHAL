@@ -452,6 +452,11 @@
               <FileType>1</FileType>
               <FilePath>..\Src\Util.c</FilePath>
             </File>
+            <File>
+              <FileName>Touch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Touch.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

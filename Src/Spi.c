@@ -438,14 +438,21 @@ void spiFlashReleasePowerDown(void)
 }
 
 void spiTest(void){
-	uint8_t Tx_Buffer[] = "今天是个好日子！";//字符串最后有个\0,所以其大小会多一个字节
-	uint8_t Rx_Buffer[BufferSize];
+	uint8_t Tx_Buffer[] = {1,2,3,45,6};//字符串最后有个\0,所以其大小会多一个字节
+	uint8_t Rx_Buffer[BufferSize] = {0};
+	uint8_t i;
 	/* 擦除SPI的扇区以写入 */
 	spiFlashSectorErase(FLASH_SectorToErase);
 	/* 将发送缓冲区的数据写到flash中 */
 	spiFlashBufferWrite(Tx_Buffer, FLASH_WriteAddress, BufferSize);
-	printf("write:%s\n", Tx_Buffer);
+	for(i = 0; i < BufferSize; i ++){
+		printf("write:%d\n", Tx_Buffer[i]);
+	}
+	//printf("write:%d\n", Tx_Buffer);
 	/* 将刚刚写入的数据读出来放到接收缓冲区中 */
 	spiFlashBufferRead(Rx_Buffer, FLASH_ReadAddress, BufferSize);
-	printf("read:%s\n", Rx_Buffer);
+	for(i = 0; i < BufferSize; i ++){
+		printf("read:%d\n", Rx_Buffer[i]);
+	}
+	//printf("read:%s\n", Rx_Buffer);
 }

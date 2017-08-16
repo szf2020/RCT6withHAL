@@ -15,6 +15,7 @@ remark	:
 #include "AdcDma.h"
 #include "Iic.h"
 #include "Spi.h"
+#include "Touch.h"
 MACHINE_STATE machineState;
 ERROR_STUS errorStus = E_OK;
 RTC_TIME rtcTime;
@@ -23,6 +24,7 @@ float Current_Temperature[2];
 uint8_t test[100] = {0};
 uint32_t FlashID = 0;
 uint32_t DeviceID = 0;
+uint32_t i;
 int main(void)
 {
 	errorStus = setPriorityGroup();
@@ -45,16 +47,17 @@ int main(void)
 	initRTC();
 	initADC1();
 	errorStus = initIic();
-	
+//	if(errorStus == E_OK){
+//		iicTest();
+//	}
 	initSpix(SPI1);
 	DeviceID = spiFlashReadDeviceID();
 	HAL_Delay(100);
 	FlashID = spiFlashReadID();
 	printf("FlashID is 0x%X,  Manufacturer Device ID is 0x%X\n", FlashID, DeviceID);
 	spiTest();
-//	if(errorStus == E_OK){
-//		iicTest();
-//	}
+	touchDev.init();
+
   /* last set */
 	//initIwdg();
   setPriority();
@@ -68,6 +71,7 @@ int main(void)
   {
 		scanKey1();
 		ledPwm();
+		touchDev.scan(0);
 //		rtcTime = getRTCDateAndTime();
 //		Current_Temperature[0] = checkChipTemp();
 //		Current_Temperature[1] = ADCPA1transform();

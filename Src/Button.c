@@ -106,7 +106,6 @@ output	:void
 describe:外部中断回调
 remark	:key0外部中断,key1扫描
 */
-uint8_t i,j;
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	if(GPIO_Pin == GPIO_PIN_5){
 		if(longClickKey0()){
