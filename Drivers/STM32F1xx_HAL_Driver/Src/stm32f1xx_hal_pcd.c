@@ -574,6 +574,7 @@ void HAL_PCD_IRQHandler(PCD_HandleTypeDef *hpcd)
   
   if (__HAL_PCD_GET_FLAG (hpcd, USB_ISTR_CTR))
   {
+		//machineState.usbFlag = 1;
     /* servicing of the endpoint correct transfer interrupt */
     /* clear of the CTR flag into the sub */
     PCD_EP_ISR_Handler(hpcd);
@@ -582,21 +583,22 @@ void HAL_PCD_IRQHandler(PCD_HandleTypeDef *hpcd)
   if (__HAL_PCD_GET_FLAG (hpcd, USB_ISTR_RESET))
   {
     __HAL_PCD_CLEAR_FLAG(hpcd, USB_ISTR_RESET);
+		//machineState.usbFlag = 2;
     HAL_PCD_ResetCallback(hpcd);
     HAL_PCD_SetAddress(hpcd, 0);
   }
 
   if (__HAL_PCD_GET_FLAG (hpcd, USB_ISTR_PMAOVR))
-  {
+  {//machineState.usbFlag = 3;
     __HAL_PCD_CLEAR_FLAG(hpcd, USB_ISTR_PMAOVR);    
   }
   if (__HAL_PCD_GET_FLAG (hpcd, USB_ISTR_ERR))
-  {
+  {//machineState.usbFlag = 4;
     __HAL_PCD_CLEAR_FLAG(hpcd, USB_ISTR_ERR); 
   }
 
   if (__HAL_PCD_GET_FLAG (hpcd, USB_ISTR_WKUP))
-  {  
+  { //machineState.usbFlag = 5;
     hpcd->Instance->CNTR &= ~(USB_CNTR_LP_MODE);
     
     /*set wInterrupt_Mask global variable*/
@@ -612,7 +614,7 @@ void HAL_PCD_IRQHandler(PCD_HandleTypeDef *hpcd)
   }
 
   if (__HAL_PCD_GET_FLAG (hpcd, USB_ISTR_SUSP))
-  {
+  {//machineState.usbFlag = 6;
     /* clear of the ISTR bit must be done after setting of CNTR_FSUSP */
     __HAL_PCD_CLEAR_FLAG(hpcd, USB_ISTR_SUSP);  
     
@@ -626,13 +628,13 @@ void HAL_PCD_IRQHandler(PCD_HandleTypeDef *hpcd)
   }
 
   if (__HAL_PCD_GET_FLAG (hpcd, USB_ISTR_SOF))
-  {
+  {//machineState.usbFlag = 7;
     __HAL_PCD_CLEAR_FLAG(hpcd, USB_ISTR_SOF); 
     HAL_PCD_SOFCallback(hpcd);
   }
 
   if (__HAL_PCD_GET_FLAG (hpcd, USB_ISTR_ESOF))
-  {
+  {//machineState.usbFlag = 8;
     /* clear ESOF flag in ISTR */
     __HAL_PCD_CLEAR_FLAG(hpcd, USB_ISTR_ESOF); 
   }
@@ -936,7 +938,6 @@ HAL_StatusTypeDef HAL_PCD_EP_Receive(PCD_HandleTypeDef *hpcd, uint8_t ep_addr, u
   PCD_EPTypeDef *ep = NULL;
   
   ep = &hpcd->OUT_ep[ep_addr & 0x7F];
-  
   /*setup and start the Xfer */
   ep->xfer_buff = pBuf;  
   ep->xfer_len = len;
@@ -1223,7 +1224,6 @@ static HAL_StatusTypeDef PCD_EP_ISR_Handler(PCD_HandleTypeDef *hpcd)
   uint8_t epindex = 0;
   __IO uint16_t wIstr = 0;  
   __IO uint16_t wEPVal = 0;
-  
   /* stay in loop while pending interrupts */
   while (((wIstr = hpcd->Instance->ISTR) & USB_ISTR_CTR) != 0)
   {
@@ -1250,7 +1250,6 @@ static HAL_StatusTypeDef PCD_EP_ISR_Handler(PCD_HandleTypeDef *hpcd)
         /* TX COMPLETE */
         HAL_PCD_DataInStageCallback(hpcd, 0);
         
-        
         if((hpcd->USB_Address > 0)&& ( ep->xfer_len == 0))
         {
           hpcd->Instance->DADDR = (hpcd->USB_Address | USB_DADDR_EF);
@@ -1274,7 +1273,6 @@ static HAL_StatusTypeDef PCD_EP_ISR_Handler(PCD_HandleTypeDef *hpcd)
           USB_ReadPMA(hpcd->Instance, (uint8_t*)hpcd->Setup ,ep->pmaadress , ep->xfer_count);       
           /* SETUP bit kept frozen while CTR_RX = 1*/ 
           PCD_CLEAR_RX_EP_CTR(hpcd->Instance, PCD_ENDP0); 
-          
           /* Process SETUP Packet*/
           HAL_PCD_SetupStageCallback(hpcd);
         }

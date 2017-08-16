@@ -199,6 +199,8 @@ void setPriority(void)
 	
 	HAL_NVIC_SetPriority(RTC_Alarm_IRQn, 14, 0);
 	HAL_NVIC_EnableIRQ(RTC_Alarm_IRQn);
+//	HAL_NVIC_SetPriority(USB_LP_CAN1_RX0_IRQn, 7, 0);
+//	HAL_NVIC_EnableIRQ(USB_LP_CAN1_RX0_IRQn);
 	
 }
 /*

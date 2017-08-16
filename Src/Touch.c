@@ -280,24 +280,24 @@ void touchSaveAdjData(void){
 	data[2] =(uint8_t)((temp >> 16) & 0xFF);
 	data[3] =(uint8_t)((temp >> 24) & 0xFF);
   eepromWriteBytes(data,SAVE_ADDR_BASE,4);  
-	printf("temp = %d,xfac:%d %d %d %d\n",temp,data[0],data[1],data[2],data[3]);	
+	//printf("temp = %d,xfac:%d %d %d %d\n",temp,data[0],data[1],data[2],data[3]);	
 	temp=touchDev.yfac*100000000;//保存y校正因素  
 	data[0] =(uint8_t)temp & 0xFF;
 	data[1] =(uint8_t)((temp >> 8) & 0xFF);
 	data[2] =(uint8_t)((temp >> 16) & 0xFF);
 	data[3] =(uint8_t)((temp >> 24) & 0xFF);  
   eepromWriteBytes(data,SAVE_ADDR_BASE+4,4);
-	printf("temp = %d,yfac:%d %d %d %d\n",temp,data[0],data[1],data[2],data[3]);
+	//printf("temp = %d,yfac:%d %d %d %d\n",temp,data[0],data[1],data[2],data[3]);
 	//保存x偏移量
 	data[0] =(uint8_t)touchDev.xoff & 0xFF;
 	data[1] =(uint8_t)((touchDev.xoff >> 8) & 0xFF);
    eepromWriteBytes(data,SAVE_ADDR_BASE+8,2);	
-	 printf("touchDev.xoff = %d,xoff:%d %d\n",touchDev.xoff,data[0],data[1]);	 
+	// printf("touchDev.xoff = %d,xoff:%d %d\n",touchDev.xoff,data[0],data[1]);	 
 	//保存y偏移量
 	data[0] =(uint8_t)touchDev.yoff & 0xFF;
 	data[1] =(uint8_t)((touchDev.yoff >> 8) & 0xFF);
 	eepromWriteBytes(data,SAVE_ADDR_BASE+10,2);	
-	printf("touchDev.yoff = %d,yoff:%d %d\n",touchDev.yoff,data[0],data[1]);
+	//printf("touchDev.yoff = %d,yoff:%d %d\n",touchDev.yoff,data[0],data[1]);
 	//保存触屏类型
 	eepromWriteBytes(&(touchDev.touchtype),SAVE_ADDR_BASE+12,1);	
 	temp=0X0A;//标记校准过了
@@ -333,7 +333,7 @@ uint8_t touchGetAdjData(void){
 		
 		eepromReadBytes(data,SAVE_ADDR_BASE + 12,1);
  		touchDev.touchtype=data[0];//读取触屏类型标记
-		printf("touchDev.xfac = %f\n,touchDev.yfac = %f\n,touchDev.xoff = %d\n,touchDev.yoff = %d\n,touchDev.touchtype = %d\n",touchDev.xfac,touchDev.yfac,touchDev.xoff,touchDev.yoff,touchDev.touchtype);
+		//printf("touchDev.xfac = %f\n,touchDev.yfac = %f\n,touchDev.xoff = %d\n,touchDev.yoff = %d\n,touchDev.touchtype = %d\n",touchDev.xfac,touchDev.yfac,touchDev.xoff,touchDev.yoff,touchDev.touchtype);
 		return 1;
 	}
 	return 0;
@@ -449,7 +449,7 @@ READJ:
 					touchDev.xoff=(lcdDevice.width-touchDev.xfac*(pos_temp[1][0]+pos_temp[0][0]))/2;//得到xoff
  					touchDev.yfac=(float)(lcdDevice.height-40)/(pos_temp[2][1]-pos_temp[0][1]);//得到yfac
 					touchDev.yoff=(lcdDevice.height-touchDev.yfac*(pos_temp[2][1]+pos_temp[0][1]))/2;//得到yoff  
-					printf("校准结果:\ntouchDev.xfac = %f\n,touchDev.yfac = %f\n,touchDev.xoff = %d\n,touchDev.yoff = %d\n,touchDev.touchtype = %d\n",touchDev.xfac,touchDev.yfac,touchDev.xoff,touchDev.yoff,touchDev.touchtype);
+					//printf("校准结果:\ntouchDev.xfac = %f\n,touchDev.yfac = %f\n,touchDev.xoff = %d\n,touchDev.yoff = %d\n,touchDev.touchtype = %d\n",touchDev.xfac,touchDev.yfac,touchDev.xoff,touchDev.yoff,touchDev.touchtype);
 					if(abs(touchDev.xfac)>2||abs(touchDev.yfac)>2)//触屏和预设的相反了.
 					{
 						cnt=0;

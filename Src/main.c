@@ -16,12 +16,16 @@ remark	:
 #include "Iic.h"
 #include "Spi.h"
 #include "Touch.h"
+#include "usb_device.h"
+#include "fatfs.h"
+#include "usbd_cdc_if.h"
 MACHINE_STATE machineState;
 ERROR_STUS errorStus = E_OK;
 RTC_TIME rtcTime;
 /* 用于保存转换计算后的电压值 */	 
 float Current_Temperature[2];
 uint8_t test[100] = {0};
+uint8_t UserTxBuffer[100] = {1,2,3,4};
 uint32_t FlashID = 0;
 uint32_t DeviceID = 0;
 uint32_t i;
@@ -57,7 +61,8 @@ int main(void)
 	printf("FlashID is 0x%X,  Manufacturer Device ID is 0x%X\n", FlashID, DeviceID);
 	spiTest();
 	touchDev.init();
-
+	MX_USB_DEVICE_Init();
+	MX_FATFS_Init();
   /* last set */
 	//initIwdg();
   setPriority();
@@ -72,6 +77,9 @@ int main(void)
 		scanKey1();
 		ledPwm();
 		touchDev.scan(0);
+		printf("%d",machineState.usbFlag);
+		HAL_Delay(250);
+		//CDC_Transmit_FS((uint8_t*)&UserTxBuffer, sizeof(UserTxBuffer));
 //		rtcTime = getRTCDateAndTime();
 //		Current_Temperature[0] = checkChipTemp();
 //		Current_Temperature[1] = ADCPA1transform();

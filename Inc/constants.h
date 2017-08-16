@@ -1,6 +1,7 @@
 #ifndef _CONSTANTS_H_
 #define _CONSTANTS_H_
 #include "stm32f1xx_hal.h"
+#include "stdint.h"
 typedef enum{
 	E_OK,
 	E_SYSTEM_CLOCK,
@@ -28,5 +29,7 @@ typedef struct{
 	BOOLEAN tim8Flag;
 	BOOLEAN RTCFlag;
 	BOOLEAN iicFlag;
+	uint8_t usbFlag;
 }MACHINE_STATE;
+extern MACHINE_STATE machineState;
 #endif
