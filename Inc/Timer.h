@@ -13,6 +13,7 @@ typedef enum{
 	SPEED5,
 	SPEED6,
 }PWM_SPEED;
+extern uint16_t timercounter[8];
 
 ERROR_STUS initTimer(TIM_TypeDef *timer);
 void ledPwm(void);

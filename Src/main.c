@@ -21,6 +21,7 @@ remark	:
 #include "usbd_cdc_if.h"
 #include "stdlib.h"
 #include "StmFlash.h"
+#include "infrared.h"
 MACHINE_STATE machineState;
 ERROR_STUS errorStus = E_OK;
 RTC_TIME rtcTime;
@@ -43,7 +44,7 @@ int main(void)
 	initLed();
 	initButton();
 	initTimer(TIM1);
-	initTimer(TIM2);
+	initTimer(TIM2);//10us
 	initTimer(TIM3);
 	initTimer(TIM4);
 	initTimer(TIM5);
@@ -52,7 +53,7 @@ int main(void)
 	initTimer(TIM8);
 	initTFTLCD();
 	initRTC();
-	initADC1();
+	//initADC1();
 	errorStus = initIic();
 //	if(errorStus == E_OK){
 //		iicTest();
@@ -66,6 +67,7 @@ int main(void)
 	StmFlashTest();
 	touchDev.init();
 	MX_USB_DEVICE_Init();
+	initInfrared();//红外和ADCDMA中的PA1脚是冲突的,两者只能取其1
 //	MX_FATFS_Init();
 //	fatsFlag = f_mount(&fs,"",0);
 //	if(fatsFlag){
@@ -87,6 +89,7 @@ int main(void)
 		scanKey1();
 		ledPwm();
 		touchDev.scan(0);
+		infraredTest();
 //		printf("%d",machineState.usbFlag);
 //		HAL_Delay(250);
 		//CDC_Transmit_FS((uint8_t*)&UserTxBuffer, sizeof(UserTxBuffer));

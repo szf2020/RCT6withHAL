@@ -135,7 +135,7 @@ funName	:setPriority
 input		:NA
 output	:NA
 describe:设置所有中断优先级
-remark	:
+remark	:小的优先级高，0最大
 */
 void setPriority(void)
 {
@@ -156,51 +156,52 @@ void setPriority(void)
   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 	
 	/* Peripheral interrupt init */
-	HAL_NVIC_SetPriority(USART1_IRQn, 1, 0);
+	HAL_NVIC_SetPriority(USART1_IRQn, 11, 0);
 	HAL_NVIC_EnableIRQ(USART1_IRQn);
 	
 	/* EXTI interrupt init:KEY0(PC5)外部中断*/
-  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 2, 0);
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 10, 0);
   HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 	/* 配置定时器中断优先级并使能 */
-	HAL_NVIC_SetPriority(TIM1_BRK_IRQn, 15, 0);
+	HAL_NVIC_SetPriority(TIM1_BRK_IRQn, 0, 0);
 	HAL_NVIC_EnableIRQ(TIM1_BRK_IRQn);
 	
-	HAL_NVIC_SetPriority(TIM1_UP_IRQn, 15, 0);
+	HAL_NVIC_SetPriority(TIM1_UP_IRQn, 0, 0);
 	HAL_NVIC_EnableIRQ(TIM1_UP_IRQn);
 	
-	HAL_NVIC_SetPriority(TIM1_TRG_COM_IRQn, 15, 0);
+	HAL_NVIC_SetPriority(TIM1_TRG_COM_IRQn, 0, 0);
 	HAL_NVIC_EnableIRQ(TIM1_TRG_COM_IRQn);
 	
-	HAL_NVIC_SetPriority(TIM1_CC_IRQn, 15, 0);
+	HAL_NVIC_SetPriority(TIM1_CC_IRQn, 0, 0);
 	HAL_NVIC_EnableIRQ(TIM1_CC_IRQn);
 	
-	HAL_NVIC_SetPriority(TIM2_IRQn, 13, 0);
+	HAL_NVIC_SetPriority(TIM2_IRQn, 2, 0);
 	HAL_NVIC_EnableIRQ(TIM2_IRQn);
-	HAL_NVIC_SetPriority(TIM3_IRQn, 12, 0);
+	HAL_NVIC_SetPriority(TIM3_IRQn, 3, 0);
 	HAL_NVIC_EnableIRQ(TIM3_IRQn);
-	HAL_NVIC_SetPriority(TIM4_IRQn, 11, 0);
+	HAL_NVIC_SetPriority(TIM4_IRQn, 4, 0);
 	HAL_NVIC_EnableIRQ(TIM4_IRQn);
-	HAL_NVIC_SetPriority(TIM5_IRQn, 10, 0);
+	HAL_NVIC_SetPriority(TIM5_IRQn, 5, 0);
 	HAL_NVIC_EnableIRQ(TIM5_IRQn);
-	HAL_NVIC_SetPriority(TIM6_IRQn, 9, 0);
+	HAL_NVIC_SetPriority(TIM6_IRQn, 6, 0);
 	HAL_NVIC_EnableIRQ(TIM6_IRQn);
-	HAL_NVIC_SetPriority(TIM7_IRQn, 8, 0);
+	HAL_NVIC_SetPriority(TIM7_IRQn, 7, 0);
 	HAL_NVIC_EnableIRQ(TIM7_IRQn);
 	
-	HAL_NVIC_SetPriority(TIM8_BRK_IRQn, 14, 0);
+	HAL_NVIC_SetPriority(TIM8_BRK_IRQn, 1, 0);
 	HAL_NVIC_EnableIRQ(TIM8_BRK_IRQn);
-	HAL_NVIC_SetPriority(TIM8_UP_IRQn, 14, 0);
+	HAL_NVIC_SetPriority(TIM8_UP_IRQn, 1, 0);
 	HAL_NVIC_EnableIRQ(TIM8_UP_IRQn);
-	HAL_NVIC_SetPriority(TIM8_TRG_COM_IRQn, 14, 0);
+	HAL_NVIC_SetPriority(TIM8_TRG_COM_IRQn, 1, 0);
 	HAL_NVIC_EnableIRQ(TIM8_TRG_COM_IRQn);
-	HAL_NVIC_SetPriority(TIM8_CC_IRQn, 14, 0);
+	HAL_NVIC_SetPriority(TIM8_CC_IRQn, 1, 0);
 	HAL_NVIC_EnableIRQ(TIM8_CC_IRQn);
 	
-	HAL_NVIC_SetPriority(RTC_Alarm_IRQn, 14, 0);
+	HAL_NVIC_SetPriority(RTC_Alarm_IRQn, 8, 0);
 	HAL_NVIC_EnableIRQ(RTC_Alarm_IRQn);
-//	HAL_NVIC_SetPriority(USB_LP_CAN1_RX0_IRQn, 7, 0);
-//	HAL_NVIC_EnableIRQ(USB_LP_CAN1_RX0_IRQn);
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI1_IRQn, 9, 0);
+  HAL_NVIC_EnableIRQ(EXTI1_IRQn);
 	
 }
 /*

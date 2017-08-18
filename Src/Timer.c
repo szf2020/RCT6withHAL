@@ -180,31 +180,31 @@ remark	:
 void timerTest(void){
 	if(machineState.tim2Flag == TRUE){
 		machineState.tim2Flag = FALSE;
-		printf("TIM2");
+		printf("timercounter[1] = %d\n",timercounter[1]);
 	}
 	if(machineState.tim3Flag == TRUE){
 		machineState.tim3Flag = FALSE;
-		printf("TIM3");
+		printf("timercounter[2] = %d\n",timercounter[2]);
 	}
 	if(machineState.tim4Flag == TRUE){
 		machineState.tim4Flag = FALSE;
-		printf("TIM4");
+		//printf("TIM4");
 	}
 	if(machineState.tim5Flag == TRUE){
 		machineState.tim5Flag = FALSE;
-		printf("TIM5");
+		//printf("TIM5");
 	}
 	if(machineState.tim6Flag == TRUE){
 		machineState.tim6Flag = FALSE;
-		printf("TIM6");
+		//printf("TIM6");
 	}
 	if(machineState.tim7Flag == TRUE){
 		machineState.tim7Flag = FALSE;
-		printf("TIM7");
+		//printf("TIM7");
 	}
 	if(machineState.tim8Flag == TRUE){
 		machineState.tim8Flag = FALSE;
-		printf("TIM8");
+		//printf("TIM8");
 	}
 }
 /*
@@ -218,7 +218,7 @@ ERROR_STUS initTimer(TIM_TypeDef *timer){
 	if(timer == TIM1){
 		BSP_initTimer(&htim1,TIM1,71,1000);
 	}else if(timer == TIM2){
-		BSP_initTimer(&htim2,TIM2,71,1000);
+		BSP_initTimer(&htim2,TIM2,71,20);
 	}else if(timer == TIM3){
 		BSP_initTimer(&htim3,TIM3,71,1000);
 	}else if(timer == TIM4){
