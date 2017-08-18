@@ -20,6 +20,7 @@
 "rct6\usbd_conf.o"
 "rct6\usbd_desc.o"
 "rct6\user_diskio.o"
+"rct6\stmflash.o"
 "rct6\stm32f1xx_hal_dma.o"
 "rct6\stm32f1xx_hal_cortex.o"
 "rct6\stm32f1xx_hal_gpio_ex.o"

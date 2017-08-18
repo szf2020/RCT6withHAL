@@ -8,5 +8,6 @@
 #define	bit_del(n, bit)			((n) &= (~(_bit(bit))))
 #define	bit_is_set(n, bit)			((n) & _bit(bit))
 
-BOOLEAN bufferCmp(uint8_t* pBuffer1, uint8_t* pBuffer2, uint16_t BufferLength);
+BOOLEAN bufferCmp8(uint8_t* pBuffer1, uint8_t* pBuffer2, uint16_t BufferLength);
+BOOLEAN bufferCmp16(uint16_t* pBuffer1, uint16_t* pBuffer2, uint16_t BufferLength);
 #endif

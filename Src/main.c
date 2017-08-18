@@ -19,6 +19,8 @@ remark	:
 #include "usb_device.h"
 #include "fatfs.h"
 #include "usbd_cdc_if.h"
+#include "stdlib.h"
+#include "StmFlash.h"
 MACHINE_STATE machineState;
 ERROR_STUS errorStus = E_OK;
 RTC_TIME rtcTime;
@@ -61,6 +63,7 @@ int main(void)
 	FlashID = spiFlashReadID();
 	printf("FlashID is 0x%X,  Manufacturer Device ID is 0x%X\n", FlashID, DeviceID);
 	spiTest();
+	StmFlashTest();
 	touchDev.init();
 	MX_USB_DEVICE_Init();
 //	MX_FATFS_Init();

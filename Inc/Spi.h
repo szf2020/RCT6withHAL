@@ -1,8 +1,14 @@
+/*
+W25Q64:
+	64M-bit = 8M B = 128 * block(64KB)
+	block:16 * sector(4K) = 64K
+	sector:0x1000 size(4K)
+*/
 #ifndef _SIP_H_
 #define _SIP_H_
 #include "stm32f1xx_hal.h"
 #include "Util.h"
-#define countof(a)      (sizeof(a) / sizeof(*(a)))
+#define countof(a)      (sizeof(a)/* / sizeof(*(a))*/)
 #define TxBufferSize1   (countof(TxBuffer1))
 #define RxBufferSize1   (countof(TxBuffer1))
 #define BufferSize      (countof(Tx_Buffer))
