@@ -378,37 +378,37 @@ void iicTest(void){
 	uint16_t i;
 	uint8_t I2c_Buf_Write[256]={0};
 	uint8_t I2c_Buf_Read[256]={0};
-	printf("检测到板载EEPROM（AT24C02）芯片\n");
-	printf("待写入的数据:\n");    
+//	printf("检测到板载EEPROM（AT24C02）芯片\n");
+//	printf("待写入的数据:\n");    
 	for ( i=0; i<256; i++ ) //填充缓冲
 	{
 		I2c_Buf_Read[i]=0;      // 清空接收缓冲区
 		I2c_Buf_Write[i] = i;   // 为发送缓冲区填充数据
-		printf("0x%02X ", I2c_Buf_Write[i]);
-		if(i%16 == 15)    
-				printf("\n");
+//		printf("0x%02X ", I2c_Buf_Write[i]);
+//		if(i%16 == 15)    
+//				printf("\n");
 	 }
 	 //将I2c_Buf_Write中顺序递增的数据写入EERPOM中 
 	 eepromWriteBytes(I2c_Buf_Write, 0, 256);  
 	 HAL_Delay(100);
 	 
-	 printf("读出的数据:\n");
+//	 printf("读出的数据:\n");
 	 //将EEPROM读出数据顺序保持到I2c_Buf_Read中  
 	 eepromReadBytes(I2c_Buf_Read, 0, 256); 
 	 for (i=0;i<256;i++)
 	 {    
 		if(I2c_Buf_Read[i] != I2c_Buf_Write[i])
 		{
-			printf("0x%02X ", I2c_Buf_Read[i]);
-			printf("错误:I2C EEPROM写入与读出的数据不一致\n\r");
+//			printf("0x%02X ", I2c_Buf_Read[i]);
+//			printf("错误:I2C EEPROM写入与读出的数据不一致\n\r");
 			break;
 		}
-		printf("0x%02X ", I2c_Buf_Read[i]);
-		if(i%16 == 15)    
-				printf("\n");
+//		printf("0x%02X ", I2c_Buf_Read[i]);
+//		if(i%16 == 15)    
+//				printf("\n");
 	}
 	if(i==256)
 	{
-		printf("EEPROM(AT24C02)读写测试成功\n\r");
+//		printf("EEPROM(AT24C02)读写测试成功\n\r");
 	}
 }

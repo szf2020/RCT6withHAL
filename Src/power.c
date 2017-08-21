@@ -15,13 +15,13 @@ void checkPowerMode(void){
 	 /* 检测系统是否是从待机模式启动的 */ 
   if (__HAL_PWR_GET_FLAG(PWR_FLAG_SB) != RESET)
   {
-    printf("待机唤醒复位\n");
+//    printf("待机唤醒复位\n");
     /* 清除待机标志位 */
     __HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);
   }
   else
   {
-    printf("系统是上电启动\n");
+//    printf("系统是上电启动\n");
   }
 }
 /*

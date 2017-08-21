@@ -492,6 +492,11 @@
               <FileType>1</FileType>
               <FilePath>..\Src\StmFlash.c</FilePath>
             </File>
+            <File>
+              <FileName>Infrared.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Infrared.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

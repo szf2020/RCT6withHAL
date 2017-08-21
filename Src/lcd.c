@@ -117,7 +117,7 @@ void readLcdDeviceId(void){
 	lcdDevice.id = lcdReturnData();
 	lcdDevice.id<<=8;
 	lcdDevice.id |= lcdReturnData();
-	printf("readlcdid:%x\n",lcdDevice.id);
+//	printf("readlcdid:%x\n",lcdDevice.id);
 }
 /*
 funName	:defaultScanDir

@@ -74,8 +74,8 @@ remark	:
 void infraredTest(void){
 	if( frame_flag == 1 ) /* 一帧红外数据接收完成 */
 	{
-		printf("key_val=%d \n",getProcessData());
-		printf("按键次数frame_cnt=%d \n",frame_cnt);
-		printf("中断次数isr_cnt=%d \n",isr_cnt);
+//		printf("key_val=%d \n",getProcessData());
+//		printf("按键次数frame_cnt=%d \n",frame_cnt);
+//		printf("中断次数isr_cnt=%d \n",isr_cnt);
 	}
 }

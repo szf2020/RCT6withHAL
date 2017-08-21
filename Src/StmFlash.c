@@ -131,11 +131,11 @@ void StmFlashTest(void){
 	uint16_t i;
 	StmFlashWrite(STMFLASH_WriteAddress,Tx_Buffer,stmBufferSize);
 	for(i = 0;i < stmBufferSize;i ++){
-		printf("stmFlashWrite:%d\n",(int)Tx_Buffer[i]);
+//		printf("stmFlashWrite:%d\n",(int)Tx_Buffer[i]);
 	}
 	StmFlashRead(STMFLASH_ReadAddress,Rx_Buffer,stmBufferSize);
 	for(i = 0;i < stmBufferSize;i ++){
-		printf("stmFlashRead:%d\n",(int)Rx_Buffer[i]);
+//		printf("stmFlashRead:%d\n",(int)Rx_Buffer[i]);
 	}
-	printf("%d\n",bufferCmp16(Tx_Buffer, Rx_Buffer, stmBufferSize));
+//	printf("%d\n",bufferCmp16(Tx_Buffer, Rx_Buffer, stmBufferSize));
 }

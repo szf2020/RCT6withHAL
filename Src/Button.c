@@ -42,7 +42,7 @@ void scanKey1(void){
 				if(button.keycounter[1] >= 10){
 					button.keycounter[1] = 0;
 					button.keyflag[1] = 1;
-					printf("key1 press!enter stop mode\n");
+//					printf("key1 press!enter stop mode\n");
 					enterStopMode();
 				}
 			}else{
@@ -85,7 +85,7 @@ uint8_t longClickKey0(void)
 			upCnt=0;																						//清除按键释放记录
 			if(downCnt>=100)																		//按下时间足够
 			{
-        printf("长按key0!\n");	 
+//        printf("长按key0!\n");	 
 				return 1; 																				//检测到按键被时间长按下
 			}
 		}

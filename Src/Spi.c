@@ -446,13 +446,13 @@ void spiTest(void){
 	/* 将发送缓冲区的数据写到flash中 */
 	spiFlashBufferWrite(Tx_Buffer, FLASH_WriteAddress, BufferSize);
 	for(i = 0; i < BufferSize; i ++){
-		printf("write:%d\n", Tx_Buffer[i]);
+//		printf("write:%d\n", Tx_Buffer[i]);
 	}
 	//printf("write:%d\n", Tx_Buffer);
 	/* 将刚刚写入的数据读出来放到接收缓冲区中 */
 	spiFlashBufferRead(Rx_Buffer, FLASH_ReadAddress, BufferSize);
 	for(i = 0; i < BufferSize; i ++){
-		printf("read:%d\n", Rx_Buffer[i]);
+//		printf("read:%d\n", Rx_Buffer[i]);
 	}
 	//printf("read:%s\n", Rx_Buffer);
 }

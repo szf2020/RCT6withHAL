@@ -180,11 +180,11 @@ remark	:
 void timerTest(void){
 	if(machineState.tim2Flag == TRUE){
 		machineState.tim2Flag = FALSE;
-		printf("timercounter[1] = %d\n",timercounter[1]);
+//		printf("timercounter[1] = %d\n",timercounter[1]);
 	}
 	if(machineState.tim3Flag == TRUE){
 		machineState.tim3Flag = FALSE;
-		printf("timercounter[2] = %d\n",timercounter[2]);
+//		printf("timercounter[2] = %d\n",timercounter[2]);
 	}
 	if(machineState.tim4Flag == TRUE){
 		machineState.tim4Flag = FALSE;

@@ -26,13 +26,13 @@ MACHINE_STATE machineState;
 ERROR_STUS errorStus = E_OK;
 RTC_TIME rtcTime;
 /* 用于保存转换计算后的电压值 */	 
-float Current_Temperature[2];
-uint8_t test[100] = {0};
-uint8_t UserTxBuffer[100] = {1,2,3,4};
+//float Current_Temperature[2];
+//uint8_t test[100] = {0};
+//uint8_t UserTxBuffer[100] = {1,2,3,4};
 uint32_t FlashID = 0;
 uint32_t DeviceID = 0;
-FATFS fs;
-FRESULT fatsFlag;
+////FATFS fs;
+//FRESULT fatsFlag;
 int main(void)
 {
 	errorStus = setPriorityGroup();
@@ -45,12 +45,12 @@ int main(void)
 	initButton();
 	initTimer(TIM1);
 	initTimer(TIM2);//10us
-	initTimer(TIM3);
-	initTimer(TIM4);
-	initTimer(TIM5);
-	initTimer(TIM6);
-	initTimer(TIM7);
-	initTimer(TIM8);
+//	initTimer(TIM3);
+//	initTimer(TIM4);
+//	initTimer(TIM5);
+//	initTimer(TIM6);
+//	initTimer(TIM7);
+//	initTimer(TIM8);
 	initTFTLCD();
 	initRTC();
 	//initADC1();
@@ -62,7 +62,7 @@ int main(void)
 	DeviceID = spiFlashReadDeviceID();
 	HAL_Delay(100);
 	FlashID = spiFlashReadID();
-	printf("FlashID is 0x%X,  Manufacturer Device ID is 0x%X\n", FlashID, DeviceID);
+//	printf("FlashID is 0x%X,  Manufacturer Device ID is 0x%X\n", FlashID, DeviceID);
 	spiTest();
 	StmFlashTest();
 	touchDev.init();
@@ -84,12 +84,14 @@ int main(void)
 //	POINT_COLOR = RED;
 //	LCD_Set_Window(100,100,100,60);
 //	POINT_COLOR = BLUE;
+//	printf("你\n");
   while (1)
   {
 		scanKey1();
 		ledPwm();
 		touchDev.scan(0);
-		infraredTest();
+//		infraredTest();
+		
 //		printf("%d",machineState.usbFlag);
 //		HAL_Delay(250);
 		//CDC_Transmit_FS((uint8_t*)&UserTxBuffer, sizeof(UserTxBuffer));
