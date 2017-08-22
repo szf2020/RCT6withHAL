@@ -1,6 +1,8 @@
 #include "usart.h"
+#include "Esp8266.h"
 UART_HandleTypeDef huart1;//串口1
-uint8_t aRxBuffer;//串口接收buffer
+UART_HandleTypeDef huart2;//串口2
+uint8_t aRxBuffer[2];//串口接收buffer,aRxBuffer[0]接收串口1，aRxBuffer[1]接收串口2
 //加入以下代码,支持printf函数,而不需要选择use MicroLIB	  
 #if 1
 #pragma import(__use_no_semihosting)             
@@ -61,7 +63,9 @@ remark	:
 void uartEnableRx(UART_HandleTypeDef *huart){
 	if(huart == &huart1){
 		/* 使能接收，进入中断回调函数 */
-		HAL_UART_Receive_IT(&huart1,&aRxBuffer,1);
+		HAL_UART_Receive_IT(&huart1,&aRxBuffer[0],1);
+	}else if(huart == &huart2){
+		HAL_UART_Receive_IT(&huart2,&aRxBuffer[1],1);
 	}
 }
 /*
@@ -73,8 +77,13 @@ remark	:
 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 	if(huart == &huart1){
-		HAL_UART_Transmit(&huart1,&aRxBuffer,1,0);//反向回传
-		HAL_UART_Receive_IT(&huart1,&aRxBuffer,1);//继续使能串口接收，不这样做串口接收只能进来一次
+		HAL_UART_Transmit(&huart1,&aRxBuffer[0],1,0);//反向回传
+		HAL_UART_Receive_IT(&huart1,&aRxBuffer[0],1);//继续使能串口接收，不这样做串口接收只能进来一次
+	}else if(huart == &huart2){
+		if(espRxFram.InfBit.FramLength < RX_BUF_MAX_LEN - 1){
+			espRxFram.Data_RX_BUF[espRxFram.InfBit.FramLength ++] = aRxBuffer[1];
+		}
+		HAL_UART_Receive_IT(&huart2,&aRxBuffer[1],1);//继续使能串口接收，不这样做串口接收只能进来一次
 	}
 }
 /*
@@ -100,6 +109,21 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
     GPIO_InitStruct.Pin = GPIO_PIN_10;
+    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  }else if(uartHandle->Instance==USART2)
+  {
+    /**USART1 GPIO Configuration    
+    PA2     ------> USART2_TX
+    PA3     ------> USART2_RX 
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_2;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+    GPIO_InitStruct.Pin = GPIO_PIN_3;
     GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
@@ -145,5 +169,7 @@ remark	:
 void initUart(USART_TypeDef *uart){
 	if(uart == USART1){
 		uartInit(&huart1,USART1,115200);
+	}else if(uart == USART2){
+		uartInit(&huart2,USART2,115200);
 	}
 }

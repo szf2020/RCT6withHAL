@@ -22,6 +22,7 @@ remark	:
 #include "stdlib.h"
 #include "StmFlash.h"
 #include "infrared.h"
+#include "Esp8266.h"
 MACHINE_STATE machineState;
 ERROR_STUS errorStus = E_OK;
 RTC_TIME rtcTime;
@@ -33,6 +34,14 @@ uint32_t FlashID = 0;
 uint32_t DeviceID = 0;
 ////FATFS fs;
 //FRESULT fatsFlag;
+char cStr [] = { "ABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\n\
+ABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\n\
+ABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\n\
+ABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\n\
+ABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\n\
+ABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\n\
+ABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\n\
+ABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\nABCDEFGHIJKLMNOPQRSTUVWXYZ\r\n" };
 int main(void)
 {
 	errorStus = setPriorityGroup();
@@ -41,6 +50,7 @@ int main(void)
 	rccClockEnable();
 	
 	initUart(USART1);
+	initUart(USART2);//PA2用在spiNSS,使用串口2时，不能用spi W25Q64
 	initLed();
 	initButton();
 	initTimer(TIM1);
@@ -58,12 +68,12 @@ int main(void)
 //	if(errorStus == E_OK){
 //		iicTest();
 //	}
-	initSpix(SPI1);
-	DeviceID = spiFlashReadDeviceID();
-	HAL_Delay(100);
-	FlashID = spiFlashReadID();
-//	printf("FlashID is 0x%X,  Manufacturer Device ID is 0x%X\n", FlashID, DeviceID);
-	spiTest();
+//	initSpix(SPI1);
+//	DeviceID = spiFlashReadDeviceID();
+//	HAL_Delay(100);
+//	FlashID = spiFlashReadID();
+////	printf("FlashID is 0x%X,  Manufacturer Device ID is 0x%X\n", FlashID, DeviceID);
+//	spiTest();
 	StmFlashTest();
 	touchDev.init();
 	MX_USB_DEVICE_Init();
@@ -84,12 +94,17 @@ int main(void)
 //	POINT_COLOR = RED;
 //	LCD_Set_Window(100,100,100,60);
 //	POINT_COLOR = BLUE;
-//	printf("你\n");
+	printf("%d\n",espStart());
+//	HAL_Delay(1000);
   while (1)
   {
+		
 		scanKey1();
 		ledPwm();
 		touchDev.scan(0);
+		espSend(cStr);
+		HAL_Delay(1000);
+		espScanConnect();
 //		infraredTest();
 		
 //		printf("%d",machineState.usbFlag);

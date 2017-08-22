@@ -31,6 +31,7 @@ typedef struct{
 	BOOLEAN iicFlag;
 	uint8_t usbFlag;
 	uint8_t fatsFlag;
+	BOOLEAN espCloseFlag;
 }MACHINE_STATE;
 extern MACHINE_STATE machineState;
 #endif

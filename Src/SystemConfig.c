@@ -88,6 +88,7 @@ void rccClockEnable(void)
 	__HAL_RCC_ADC1_CLK_ENABLE();
 	__HAL_RCC_SPI1_CLK_ENABLE();
 	__HAL_RCC_USART1_CLK_ENABLE();
+	__HAL_RCC_USART2_CLK_ENABLE();
 	__HAL_RCC_PWR_CLK_ENABLE(); 
 	__HAL_RCC_BKP_CLK_ENABLE();
 	__HAL_RCC_RTC_ENABLE();/* 使能RTC外设时钟 */
@@ -123,6 +124,7 @@ void rccClockDisable(void)
 	__HAL_RCC_ADC1_CLK_DISABLE();
 	__HAL_RCC_SPI1_CLK_DISABLE();
 	__HAL_RCC_USART1_CLK_DISABLE();
+	__HAL_RCC_USART2_CLK_DISABLE();
 	__HAL_RCC_PWR_CLK_DISABLE();
 	__HAL_RCC_BKP_CLK_DISABLE();
 	__HAL_RCC_RTC_DISABLE();
@@ -154,7 +156,9 @@ void setPriority(void)
   HAL_NVIC_SetPriority(PendSV_IRQn, 0, 0);
   /* SysTick_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
-	
+	/* Peripheral interrupt init */
+	HAL_NVIC_SetPriority(USART2_IRQn, 12, 0);
+	HAL_NVIC_EnableIRQ(USART2_IRQn);
 	/* Peripheral interrupt init */
 	HAL_NVIC_SetPriority(USART1_IRQn, 11, 0);
 	HAL_NVIC_EnableIRQ(USART1_IRQn);

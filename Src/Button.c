@@ -2,6 +2,7 @@
 #include "Led.h"
 #include "power.h"
 #include "infrared.h"
+#include "Esp8266.h"
 BUTTON button = {0};
 
 extern MACHINE_STATE machineState;
@@ -43,7 +44,7 @@ void scanKey1(void){
 					button.keycounter[1] = 0;
 					button.keyflag[1] = 1;
 //					printf("key1 press!enter stop mode\n");
-					enterStopMode();
+//					enterStopMode();
 				}
 			}else{
 				button.keycounter[1] = 0;
