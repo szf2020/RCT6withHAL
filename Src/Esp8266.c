@@ -310,7 +310,7 @@ uint8_t espStart(void){
 		printf("没有检测到esp8266！\n");
 		return 1;
 	}
-	if(!espChooseMode(STA)){
+	if(!espChooseMode(STA_AP)){
 		printf("模式设置失败！\n");
 		return 2;
 	}
@@ -343,7 +343,7 @@ uint8_t espStart(void){
 			return 5;
 		}
 	}
-	printf("配置完毕！\n");
+//	printf("配置完毕！\n");
 	return 0;
 }
 /*
@@ -392,9 +392,27 @@ pStr，要发送的字符串
 output	:1，指令发送成功0，指令发送失败
 describe:透传模式发送数据
 remark	:
+
 */
-bool espSend(char * pStr){
-	return espSendString(ENABLE,pStr,0,Single_ID_0);
+
+bool espSend(void){
+//	return espSendString(ENABLE,pStr,0,Single_ID_0);
+	espRxFram.InfBit.FramLength = 0;
+//	char cStr1 [] = {"POST /register_de?register_code=4s6bBQQb1imhUDQv HTTP/1.1"};
+//	char cStrn [] = {"\n"};
+//	char cStr3 [] = {"Host:api.heclouds.com"};
+//	char cStr4 [] = {"Content-Length:33"};
+//	char cStr5 [] = {"Connection:close"};
+//	char cStr6 [] = {"{\"sn\":\"201708241522\",\"title\":\"test3\"}"};
+	espPrintf("POST /register_de?register_code=4s6bBQQb1imhUDQv HTTP/1.1\r\n");
+	espPrintf("Host:api.heclouds.com\r\n");
+	espPrintf("Content-Length:33\r\n\r\n");
+	//espPrintf("Connection:close\r\n\r\n");
+	espPrintf("{\"sn\":\"20180808\",\"title\":\"test4\"}");
+	HAL_Delay(2000);
+	espRxFram.Data_RX_BUF[espRxFram.InfBit.FramLength] = '\0';
+	printf("%s",espRxFram.Data_RX_BUF);
+	return true;
 }
 /*
 funName	:espExitUnvarnishSend

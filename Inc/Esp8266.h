@@ -3,11 +3,12 @@
 #include "stm32f1xx_hal.h"
 #include <stdbool.h>
 #define RX_BUF_MAX_LEN     1024                                     //最大接收缓存字节数
-#define WIFI_ID "dr.kon"
-#define WIFI_KEY "yuanquan_709"
+#define WIFI_ID 																	"dr.kon"
+#define WIFI_KEY 																	"yuanquan_709"
 
-#define User_ESP8266_TcpServer_IP                 "192.168.1.179"       //要连接的服务器的 IP
-#define User_ESP8266_TcpServer_Port               "8000"                 //要连接的服务器的端口
+#define User_ESP8266_TcpServer_IP                 "api.heclouds.com"       //要连接的服务器的 IP
+#define User_ESP8266_TcpServer_Port               "80"                 //要连接的服务器的端口
+#define PID																				93205
 
 #pragma anon_unions
 typedef struct                                    //串口数据帧的处理结构体
@@ -45,5 +46,6 @@ typedef enum{
 
 uint8_t espStart(void);
 void espScanConnect(void);
-bool espSend(char * pStr);
+bool espSend(void);
+void espPrintf(char *Data,...);
 #endif
