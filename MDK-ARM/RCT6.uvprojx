@@ -272,8 +272,8 @@
               </OCR_RVCT3>
               <OCR_RVCT4>
                 <Type>1</Type>
-                <StartAddress>0x8010000</StartAddress>
-                <Size>0x30000</Size>
+                <StartAddress>0x8000000</StartAddress>
+                <Size>0x40000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -496,6 +496,11 @@
               <FileName>Infrared.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\Infrared.c</FilePath>
+            </File>
+            <File>
+              <FileName>Esp8266.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Esp8266.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\RCT6\RCT6.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\RCT6\RCT6.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Tue Aug 22 16:54:14 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060183: Last Updated: Thu Aug 24 17:07:54 2017
 <BR><P>
-<H3>Maximum Stack Usage =        408 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        480 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-main &rArr; espStart &rArr; espLinkServer &rArr; espCmd &rArr; espPrintf &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
+main &rArr; registerDevice &rArr; espPrintf &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 <P>
 <H3>
 Mutually Recursive functions
@@ -490,7 +490,7 @@ Global Symbols
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIMEx_ConfigBreakDeadTime
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_MspPostInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer
+<BR>[Called By]<UL><LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer
 </UL>
 
 <P><STRONG><a name="[1c]"></a>BusFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_it.o(i.BusFault_Handler))
@@ -545,11 +545,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerDevice
+<LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
 <LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchReadADC
 <LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adjustTouch
-<LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readLcdDeviceId
+<LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readLcdDeviceId
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;longClickKey0
 <LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espExitUnvarnishSend
@@ -610,12 +610,12 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = HAL_GPIO_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
-<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initLed
-<LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initInfrared
-<LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initIic
-<LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initButton
+<LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initLed
+<LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initInfrared
+<LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initIic
+<LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initButton
 <LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTouch
-<LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initLCDGPIO
+<LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initLCDGPIO
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_MspPostInit
 </UL>
 
@@ -636,8 +636,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[10d]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f1xx_hal_gpio.o(i.HAL_GPIO_WritePin))
-<BR><BR>[Called By]<UL><LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
-<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initLed
+<BR><BR>[Called By]<UL><LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
+<LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initLed
 <LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchWriteByte
 <LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchReadADC
 <LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicWaitAck
@@ -649,16 +649,16 @@ Global Symbols
 <LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicAck
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcdWriteData
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcdWriteCmd
-<LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcdReturnData
-<LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initLCDGPIO
+<LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcdReturnData
+<LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initLCDGPIO
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Fast_DrawPoint
 </UL>
 
 <P><STRONG><a name="[88]"></a>HAL_GetTick</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f1xx_hal.o(i.HAL_GetTick))
-<BR><BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
+<BR><BR>[Called By]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCCEx_PeriphCLKConfig
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_WaitOnFlagUntilTimeout
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FLASH_WaitForLastOperation
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_WaitForSynchro
@@ -681,7 +681,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[bb]"></a>HAL_NVIC_EnableIRQ</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f1xx_hal_cortex.o(i.HAL_NVIC_EnableIRQ))
-<BR><BR>[Called By]<UL><LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setPriority
+<BR><BR>[Called By]<UL><LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setPriority
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_MspInit
 </UL>
 
@@ -690,13 +690,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_SetPriority
 </UL>
-<BR>[Called By]<UL><LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setPriority
+<BR>[Called By]<UL><LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setPriority
 <LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_PCD_MspInit
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
 <P><STRONG><a name="[18b]"></a>HAL_NVIC_SetPriorityGrouping</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f1xx_hal_cortex.o(i.HAL_NVIC_SetPriorityGrouping))
-<BR><BR>[Called By]<UL><LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setPriorityGroup
+<BR><BR>[Called By]<UL><LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setPriorityGroup
 </UL>
 
 <P><STRONG><a name="[136]"></a>HAL_PCDEx_PMAConfig</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, stm32f1xx_hal_pcd_ex.o(i.HAL_PCDEx_PMAConfig))
@@ -901,7 +901,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemClockConfig
+<BR>[Called By]<UL><LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemClockConfig
 </UL>
 
 <P><STRONG><a name="[cc]"></a>HAL_RCC_ClockConfig</STRONG> (Thumb, 374 bytes, Stack size 32 bytes, stm32f1xx_hal_rcc.o(i.HAL_RCC_ClockConfig))
@@ -911,11 +911,11 @@ Global Symbols
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetSysClockFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemClockConfig
+<BR>[Called By]<UL><LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemClockConfig
 </UL>
 
 <P><STRONG><a name="[97]"></a>HAL_RCC_GetHCLKFreq</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f1xx_hal_rcc.o(i.HAL_RCC_GetHCLKFreq))
-<BR><BR>[Called By]<UL><LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemClockConfig
+<BR><BR>[Called By]<UL><LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemClockConfig
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
@@ -941,11 +941,11 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemClockConfig
+<BR>[Called By]<UL><LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemClockConfig
 </UL>
 
-<P><STRONG><a name="[174]"></a>HAL_RTCEx_BKUPRead</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f1xx_hal_rtc_ex.o(i.HAL_RTCEx_BKUPRead))
-<BR><BR>[Called By]<UL><LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initRTC
+<P><STRONG><a name="[173]"></a>HAL_RTCEx_BKUPRead</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f1xx_hal_rtc_ex.o(i.HAL_RTCEx_BKUPRead))
+<BR><BR>[Called By]<UL><LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initRTC
 </UL>
 
 <P><STRONG><a name="[ce]"></a>HAL_RTC_AlarmAEventCallback</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, power.o(i.HAL_RTC_AlarmAEventCallback))
@@ -968,7 +968,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_ReadAlarmCounter
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_ByteToBcd2
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRTCDateAndTime
+<BR>[Called By]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRTCDateAndTime
 </UL>
 
 <P><STRONG><a name="[d3]"></a>HAL_RTC_GetDate</STRONG> (Thumb, 78 bytes, Stack size 24 bytes, stm32f1xx_hal_rtc.o(i.HAL_RTC_GetDate))
@@ -977,7 +977,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_GetTime
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_ByteToBcd2
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRTCDateAndTime
+<BR>[Called By]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRTCDateAndTime
 </UL>
 
 <P><STRONG><a name="[d4]"></a>HAL_RTC_GetTime</STRONG> (Thumb, 216 bytes, Stack size 32 bytes, stm32f1xx_hal_rtc.o(i.HAL_RTC_GetTime))
@@ -992,7 +992,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_SetAlarm_IT
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_GetDate
-<LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRTCDateAndTime
+<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRTCDateAndTime
 </UL>
 
 <P><STRONG><a name="[d9]"></a>HAL_RTC_Init</STRONG> (Thumb, 154 bytes, Stack size 16 bytes, stm32f1xx_hal_rtc.o(i.HAL_RTC_Init))
@@ -1004,7 +1004,7 @@ Global Symbols
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_ExitInitMode
 <LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_EnterInitMode
 </UL>
-<BR>[Called By]<UL><LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initRTC
+<BR>[Called By]<UL><LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initRTC
 </UL>
 
 <P><STRONG><a name="[da]"></a>HAL_RTC_MspInit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_hal_rtc.o(i.HAL_RTC_MspInit))
@@ -1018,7 +1018,7 @@ Global Symbols
 <LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_WriteAlarmCounter
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Bcd2ToByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRTCAlarm
+<BR>[Called By]<UL><LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRTCAlarm
 </UL>
 
 <P><STRONG><a name="[e0]"></a>HAL_RTC_SetDate</STRONG> (Thumb, 192 bytes, Stack size 24 bytes, stm32f1xx_hal_rtc.o(i.HAL_RTC_SetDate))
@@ -1031,7 +1031,7 @@ Global Symbols
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_ReadAlarmCounter
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Bcd2ToByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRTCDate
+<BR>[Called By]<UL><LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRTCDate
 </UL>
 
 <P><STRONG><a name="[e2]"></a>HAL_RTC_SetTime</STRONG> (Thumb, 168 bytes, Stack size 24 bytes, stm32f1xx_hal_rtc.o(i.HAL_RTC_SetTime))
@@ -1042,7 +1042,7 @@ Global Symbols
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_ReadAlarmCounter
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RTC_Bcd2ToByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRTCTime
+<BR>[Called By]<UL><LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRTCTime
 </UL>
 
 <P><STRONG><a name="[db]"></a>HAL_RTC_WaitForSynchro</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, stm32f1xx_hal_rtc.o(i.HAL_RTC_WaitForSynchro))
@@ -1054,7 +1054,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[18d]"></a>HAL_SYSTICK_CLKSourceConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f1xx_hal_cortex.o(i.HAL_SYSTICK_CLKSourceConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemClockConfig
+<BR><BR>[Called By]<UL><LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemClockConfig
 </UL>
 
 <P><STRONG><a name="[e4]"></a>HAL_SYSTICK_Callback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f1xx_hal_cortex.o(i.HAL_SYSTICK_Callback))
@@ -1066,7 +1066,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_SetPriority
 </UL>
-<BR>[Called By]<UL><LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemClockConfig
+<BR>[Called By]<UL><LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemClockConfig
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
@@ -1224,7 +1224,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_MspInit
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
 </UL>
-<BR>[Called By]<UL><LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartInit
+<BR>[Called By]<UL><LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartInit
 </UL>
 
 <P><STRONG><a name="[ff]"></a>HAL_UART_MspInit</STRONG> (Thumb, 78 bytes, Stack size 32 bytes, usart.o(i.HAL_UART_MspInit))
@@ -1276,8 +1276,8 @@ Global Symbols
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcdWriteCmd
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetCursor
 </UL>
-<BR>[Called By]<UL><LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
-<LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchTest
+<BR>[Called By]<UL><LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
+<LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchTest
 <LI><a href="#[0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTouch
 <LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adjustTouch
 </UL>
@@ -1818,10 +1818,10 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_LL_DataInStage
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CDC_ReceivePacket
-<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlPrepareRx
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlReceiveStatus
 <LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlContinueRx
 <LI><a href="#[e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CDC_Init
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlPrepareRx
 </UL>
 
 <P><STRONG><a name="[bd]"></a>USBD_LL_Reset</STRONG> (Thumb, 62 bytes, Stack size 16 bytes, usbd_core.o(i.USBD_LL_Reset))
@@ -2071,9 +2071,9 @@ Global Symbols
 <P><STRONG><a name="[15f]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0printf$3))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2printf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espStart
+<BR>[Called By]<UL><LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerDevice
+<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espStart
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espScanConnect
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espCmd
 </UL>
 
@@ -2087,7 +2087,7 @@ Global Symbols
 <P><STRONG><a name="[162]"></a>__2sprintf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0sprintf$3))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espSendString
+<BR>[Called By]<UL><LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerDevice
 <LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espLinkServer
 <LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espJoinAP
 <LI><a href="#[161]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espEnableMultipleId
@@ -2106,8 +2106,7 @@ Global Symbols
 <P><STRONG><a name="[2]"></a>adjustTouch</STRONG> (Thumb, 886 bytes, Stack size 72 bytes, touch.o(i.adjustTouch))
 <BR><BR>[Stack]<UL><LI>Max Depth = 288<LI>Call Chain = adjustTouch &rArr; touchAdjInfoShow &rArr; LCD_ShowNum &rArr; LCD_ShowChar &rArr; LCD_Fast_DrawPoint &rArr; lcdWriteData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
+<BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 <LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
@@ -2123,9 +2122,10 @@ Global Symbols
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f
 <LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_ShowString
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
 </UL>
-<BR>[Called By]<UL><LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchTest
+<BR>[Called By]<UL><LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchTest
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> touch.o(.data)
 </UL>
@@ -2137,11 +2137,15 @@ Global Symbols
 <LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicStart
 <LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicSendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initIic
+<BR>[Called By]<UL><LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initIic
 </UL>
 
-<P><STRONG><a name="[185]"></a>checkPowerMode</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, power.o(i.checkPowerMode))
+<P><STRONG><a name="[184]"></a>checkPowerMode</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, power.o(i.checkPowerMode))
 <BR><BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[188]"></a>countContentSize</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, onenet.o(i.countContentSize))
+<BR><BR>[Called By]<UL><LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerDevice
 </UL>
 
 <P><STRONG><a name="[152]"></a>defaultScanDir</STRONG> (Thumb, 192 bytes, Stack size 16 bytes, lcd.o(i.defaultScanDir))
@@ -2150,7 +2154,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcdWriteData
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcdWriteCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setLcdDir
+<BR>[Called By]<UL><LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setLcdDir
 </UL>
 
 <P><STRONG><a name="[153]"></a>eepromReadBytes</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, iic.o(i.eepromReadBytes))
@@ -2194,7 +2198,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espStart
+<BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espStart
 </UL>
 
 <P><STRONG><a name="[15d]"></a>espChooseMode</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, esp8266.o(i.espChooseMode))
@@ -2202,7 +2206,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espStart
+<BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espStart
 </UL>
 
 <P><STRONG><a name="[15c]"></a>espCmd</STRONG> (Thumb, 96 bytes, Stack size 24 bytes, esp8266.o(i.espCmd))
@@ -2214,7 +2218,6 @@ Global Symbols
 <LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espUnvarnishSend
-<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espSendString
 <LI><a href="#[166]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espLinkServer
 <LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espJoinAP
 <LI><a href="#[164]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espGetLinkStatus
@@ -2229,7 +2232,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espCmd
 <LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espStart
+<BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espStart
 </UL>
 
 <P><STRONG><a name="[163]"></a>espExitUnvarnishSend</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, esp8266.o(i.espExitUnvarnishSend))
@@ -2256,7 +2259,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espCmd
 <LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espStart
+<BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espStart
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espScanConnect
 </UL>
 
@@ -2267,7 +2270,7 @@ Global Symbols
 <LI><a href="#[167]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espStart
+<BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espStart
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espScanConnect
 </UL>
 
@@ -2276,7 +2279,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Transmit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espSendString
+<BR>[Called By]<UL><LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerDevice
 <LI><a href="#[163]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espExitUnvarnishSend
 <LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espCmd
 </UL>
@@ -2294,17 +2297,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[188]"></a>espSend</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, esp8266.o(i.espSend))
-<BR><BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
-</UL>
-
-<P><STRONG><a name="[16a]"></a>espSendString</STRONG> (Thumb, 80 bytes, Stack size 32 bytes, esp8266.o(i.espSendString), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espPrintf
-<LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espCmd
-<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
-</UL>
-
-<P><STRONG><a name="[16b]"></a>espStart</STRONG> (Thumb, 134 bytes, Stack size 8 bytes, esp8266.o(i.espStart))
+<P><STRONG><a name="[16a]"></a>espStart</STRONG> (Thumb, 128 bytes, Stack size 8 bytes, esp8266.o(i.espStart))
 <BR><BR>[Stack]<UL><LI>Max Depth = 408<LI>Call Chain = espStart &rArr; espLinkServer &rArr; espCmd &rArr; espPrintf &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espUnvarnishSend
@@ -2323,7 +2316,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[15c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espStart
+<BR>[Called By]<UL><LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espStart
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espScanConnect
 </UL>
 
@@ -2338,21 +2331,21 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_Callback
 </UL>
 
-<P><STRONG><a name="[16c]"></a>getRTCDateAndTime</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, power.o(i.getRTCDateAndTime))
+<P><STRONG><a name="[16b]"></a>getRTCDateAndTime</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, power.o(i.getRTCDateAndTime))
 <BR><BR>[Stack]<UL><LI>Max Depth = 124<LI>Call Chain = getRTCDateAndTime &rArr; HAL_RTC_GetDate &rArr; HAL_RTC_GetTime &rArr; RTC_DateUpdate &rArr; RTC_WeekDayNum
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_GetTime
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_GetDate
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_GetAlarm
 </UL>
-<BR>[Called By]<UL><LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRTCAlarm
+<BR>[Called By]<UL><LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRTCAlarm
 </UL>
 
 <P><STRONG><a name="[155]"></a>iicAck</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, iic.o(i.iicAck))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = iicAck
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicDelay
+<LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicDelay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromReadBytes
 </UL>
@@ -2361,7 +2354,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = iicNAck
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicDelay
+<LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicDelay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromReadBytes
 </UL>
@@ -2370,7 +2363,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = iicReadByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicDelay
+<LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicDelay
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromReadBytes
@@ -2380,7 +2373,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = iicSendByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicDelay
+<LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicDelay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteBytes
 <LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromReadBytes
@@ -2391,7 +2384,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = iicStart
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicDelay
+<LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicDelay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteBytes
 <LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromReadBytes
@@ -2402,9 +2395,9 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = iicStop
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicDelay
+<LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initIic
+<BR>[Called By]<UL><LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initIic
 <LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteBytes
 <LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromReadBytes
 <LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkDevice
@@ -2414,7 +2407,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = iicWaitAck
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicDelay
+<LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicDelay
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteBytes
@@ -2422,7 +2415,7 @@ Global Symbols
 <LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkDevice
 </UL>
 
-<P><STRONG><a name="[16e]"></a>initButton</STRONG> (Thumb, 42 bytes, Stack size 24 bytes, button.o(i.initButton))
+<P><STRONG><a name="[16d]"></a>initButton</STRONG> (Thumb, 42 bytes, Stack size 24 bytes, button.o(i.initButton))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = initButton &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
@@ -2430,7 +2423,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[16f]"></a>initIic</STRONG> (Thumb, 48 bytes, Stack size 24 bytes, iic.o(i.initIic))
+<P><STRONG><a name="[16e]"></a>initIic</STRONG> (Thumb, 48 bytes, Stack size 24 bytes, iic.o(i.initIic))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = initIic &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
@@ -2440,7 +2433,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[170]"></a>initInfrared</STRONG> (Thumb, 24 bytes, Stack size 24 bytes, infrared.o(i.initInfrared))
+<P><STRONG><a name="[16f]"></a>initInfrared</STRONG> (Thumb, 24 bytes, Stack size 24 bytes, infrared.o(i.initInfrared))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = initInfrared &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
@@ -2448,16 +2441,16 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[171]"></a>initLCDGPIO</STRONG> (Thumb, 86 bytes, Stack size 40 bytes, lcd.o(i.initLCDGPIO))
+<P><STRONG><a name="[170]"></a>initLCDGPIO</STRONG> (Thumb, 86 bytes, Stack size 40 bytes, lcd.o(i.initLCDGPIO))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = initLCDGPIO &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
+<BR>[Called By]<UL><LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
 </UL>
 
-<P><STRONG><a name="[172]"></a>initLed</STRONG> (Thumb, 36 bytes, Stack size 24 bytes, led.o(i.initLed))
+<P><STRONG><a name="[171]"></a>initLed</STRONG> (Thumb, 36 bytes, Stack size 24 bytes, led.o(i.initLed))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = initLed &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -2466,34 +2459,34 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[173]"></a>initRTC</STRONG> (Thumb, 110 bytes, Stack size 8 bytes, power.o(i.initRTC))
+<P><STRONG><a name="[172]"></a>initRTC</STRONG> (Thumb, 110 bytes, Stack size 8 bytes, power.o(i.initRTC))
 <BR><BR>[Stack]<UL><LI>Max Depth = 164<LI>Call Chain = initRTC &rArr; setRTCAlarm &rArr; getRTCDateAndTime &rArr; HAL_RTC_GetDate &rArr; HAL_RTC_GetTime &rArr; RTC_DateUpdate &rArr; RTC_WeekDayNum
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_Init
-<LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTCEx_BKUPRead
-<LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRTCTime
-<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRTCDate
-<LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRTCAlarm
+<LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTCEx_BKUPRead
+<LI><a href="#[175]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRTCTime
+<LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRTCDate
+<LI><a href="#[176]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setRTCAlarm
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[178]"></a>initTFTLCD</STRONG> (Thumb, 590 bytes, Stack size 8 bytes, lcd.o(i.initTFTLCD))
+<P><STRONG><a name="[177]"></a>initTFTLCD</STRONG> (Thumb, 590 bytes, Stack size 8 bytes, lcd.o(i.initTFTLCD))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = initTFTLCD &rArr; initLCDGPIO &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setLcdDir
-<LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readLcdDeviceId
+<LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setLcdDir
+<LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readLcdDeviceId
 <LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcdWriteData
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcdWriteCmd
-<LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initLCDGPIO
+<LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initLCDGPIO
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[17b]"></a>initTimer</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, timer.o(i.initTimer))
+<P><STRONG><a name="[17a]"></a>initTimer</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, timer.o(i.initTimer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 168<LI>Call Chain = initTimer &rArr; BSP_initTimer &rArr; HAL_TIM_MspPostInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BSP_initTimer
@@ -2505,26 +2498,26 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = initTouch &rArr; touchTest &rArr; adjustTouch &rArr; touchAdjInfoShow &rArr; LCD_ShowNum &rArr; LCD_ShowChar &rArr; LCD_Fast_DrawPoint &rArr; lcdWriteData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_Init
-<LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchTest
-<LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchReadXY
+<LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchTest
+<LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchReadXY
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> touch.o(.data)
 </UL>
-<P><STRONG><a name="[17e]"></a>initUart</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, usart.o(i.initUart))
+<P><STRONG><a name="[17d]"></a>initUart</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, usart.o(i.initUart))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = initUart &rArr; uartInit &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_GPIO_Init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartInit
+<BR>[Calls]<UL><LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[180]"></a>lcdReturnData</STRONG> (Thumb, 108 bytes, Stack size 32 bytes, lcd.o(i.lcdReturnData))
+<P><STRONG><a name="[17f]"></a>lcdReturnData</STRONG> (Thumb, 108 bytes, Stack size 32 bytes, lcd.o(i.lcdReturnData))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = lcdReturnData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readLcdDeviceId
+<BR>[Called By]<UL><LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readLcdDeviceId
 </UL>
 
 <P><STRONG><a name="[107]"></a>lcdWriteCmd</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, lcd.o(i.lcdWriteCmd))
@@ -2532,8 +2525,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
-<LI><a href="#[179]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readLcdDeviceId
+<BR>[Called By]<UL><LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
+<LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;readLcdDeviceId
 <LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;defaultScanDir
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetCursor
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Fast_DrawPoint
@@ -2546,7 +2539,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
 </UL>
-<BR>[Called By]<UL><LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
+<BR>[Called By]<UL><LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
 <LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;defaultScanDir
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_SetCursor
 <LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Fast_DrawPoint
@@ -2563,54 +2556,64 @@ Global Symbols
 <P><STRONG><a name="[93]"></a>longClickKey0</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, button.o(i.longClickKey0))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = longClickKey0 &rArr; HAL_Delay
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
+<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_Callback
 </UL>
 
-<P><STRONG><a name="[5e]"></a>main</STRONG> (Thumb, 142 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 408<LI>Call Chain = main &rArr; espStart &rArr; espLinkServer &rArr; espCmd &rArr; espPrintf &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
+<P><STRONG><a name="[5e]"></a>main</STRONG> (Thumb, 124 bytes, Stack size 0 bytes, main.o(i.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 480<LI>Call Chain = main &rArr; registerDevice &rArr; espPrintf &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemClockConfig
-<LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setPriorityGroup
-<LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setPriority
+<BR>[Calls]<UL><LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systemClockConfig
+<LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setPriorityGroup
+<LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setPriority
 <LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scanKey1
-<LI><a href="#[183]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rccClockEnable
+<LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;registerDevice
+<LI><a href="#[182]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rccClockEnable
 <LI><a href="#[187]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ledPwm
-<LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initUart
-<LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer
-<LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
-<LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initRTC
-<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initLed
-<LI><a href="#[170]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initInfrared
-<LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initIic
-<LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initButton
-<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espStart
-<LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espSend
+<LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initUart
+<LI><a href="#[17a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTimer
+<LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
+<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initRTC
+<LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initLed
+<LI><a href="#[16f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initInfrared
+<LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initIic
+<LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initButton
+<LI><a href="#[16a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espStart
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espScanConnect
-<LI><a href="#[185]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkPowerMode
+<LI><a href="#[184]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;checkPowerMode
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StmFlashTest
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_USB_DEVICE_Init
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
-<P><STRONG><a name="[183]"></a>rccClockEnable</STRONG> (Thumb, 380 bytes, Stack size 8 bytes, systemconfig.o(i.rccClockEnable))
+<P><STRONG><a name="[182]"></a>rccClockEnable</STRONG> (Thumb, 380 bytes, Stack size 8 bytes, systemconfig.o(i.rccClockEnable))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = rccClockEnable
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[179]"></a>readLcdDeviceId</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, lcd.o(i.readLcdDeviceId))
+<P><STRONG><a name="[178]"></a>readLcdDeviceId</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, lcd.o(i.readLcdDeviceId))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = readLcdDeviceId &rArr; lcdReturnData
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcdWriteCmd
-<LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcdReturnData
+<BR>[Calls]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcdWriteCmd
+<LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcdReturnData
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
+<BR>[Called By]<UL><LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
+</UL>
+
+<P><STRONG><a name="[185]"></a>registerDevice</STRONG> (Thumb, 190 bytes, Stack size 352 bytes, onenet.o(i.registerDevice))
+<BR><BR>[Stack]<UL><LI>Max Depth = 480<LI>Call Chain = registerDevice &rArr; espPrintf &rArr; HAL_UART_Transmit &rArr; UART_WaitOnFlagUntilTimeout
+</UL>
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
+<LI><a href="#[188]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;countContentSize
+<LI><a href="#[15e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;espPrintf
+<LI><a href="#[162]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
+<LI><a href="#[15f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[186]"></a>scanKey1</STRONG> (Thumb, 82 bytes, Stack size 16 bytes, button.o(i.scanKey1))
@@ -2622,7 +2625,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[1]"></a>scanTouch</STRONG> (Thumb, 184 bytes, Stack size 16 bytes, touch.o(i.scanTouch))
-<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = scanTouch &rArr; touchReadXY2 &rArr; touchReadXY &rArr; touchReadXOrY &rArr; touchReadADC &rArr; HAL_Delay
+<BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = scanTouch &rArr; touchReadXY2 &rArr; touchReadXY &rArr; touchReadXOrY &rArr; touchReadADC &rArr; touchWriteByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
@@ -2635,15 +2638,15 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> touch.o(.data)
 </UL>
-<P><STRONG><a name="[17a]"></a>setLcdDir</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, lcd.o(i.setLcdDir))
+<P><STRONG><a name="[179]"></a>setLcdDir</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, lcd.o(i.setLcdDir))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = setLcdDir &rArr; defaultScanDir &rArr; lcdWriteData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;defaultScanDir
 </UL>
-<BR>[Called By]<UL><LI><a href="#[178]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
+<BR>[Called By]<UL><LI><a href="#[177]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initTFTLCD
 </UL>
 
-<P><STRONG><a name="[184]"></a>setPriority</STRONG> (Thumb, 386 bytes, Stack size 8 bytes, systemconfig.o(i.setPriority))
+<P><STRONG><a name="[183]"></a>setPriority</STRONG> (Thumb, 386 bytes, Stack size 8 bytes, systemconfig.o(i.setPriority))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = setPriority &rArr; HAL_NVIC_SetPriority
 </UL>
 <BR>[Calls]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriority
@@ -2652,7 +2655,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[181]"></a>setPriorityGroup</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, systemconfig.o(i.setPriorityGroup))
+<P><STRONG><a name="[180]"></a>setPriorityGroup</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, systemconfig.o(i.setPriorityGroup))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = setPriorityGroup
 </UL>
 <BR>[Calls]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_NVIC_SetPriorityGrouping
@@ -2660,29 +2663,29 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[177]"></a>setRTCAlarm</STRONG> (Thumb, 60 bytes, Stack size 32 bytes, power.o(i.setRTCAlarm))
+<P><STRONG><a name="[176]"></a>setRTCAlarm</STRONG> (Thumb, 60 bytes, Stack size 32 bytes, power.o(i.setRTCAlarm))
 <BR><BR>[Stack]<UL><LI>Max Depth = 156<LI>Call Chain = setRTCAlarm &rArr; getRTCDateAndTime &rArr; HAL_RTC_GetDate &rArr; HAL_RTC_GetTime &rArr; RTC_DateUpdate &rArr; RTC_WeekDayNum
 </UL>
 <BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_SetAlarm_IT
-<LI><a href="#[16c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRTCDateAndTime
+<LI><a href="#[16b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;getRTCDateAndTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initRTC
+<BR>[Called By]<UL><LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initRTC
 </UL>
 
-<P><STRONG><a name="[175]"></a>setRTCDate</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, power.o(i.setRTCDate))
+<P><STRONG><a name="[174]"></a>setRTCDate</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, power.o(i.setRTCDate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = setRTCDate &rArr; HAL_RTC_SetDate &rArr; RTC_WriteTimeCounter &rArr; RTC_ExitInitMode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_SetDate
 </UL>
-<BR>[Called By]<UL><LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initRTC
+<BR>[Called By]<UL><LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initRTC
 </UL>
 
-<P><STRONG><a name="[176]"></a>setRTCTime</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, power.o(i.setRTCTime))
+<P><STRONG><a name="[175]"></a>setRTCTime</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, power.o(i.setRTCTime))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = setRTCTime &rArr; HAL_RTC_SetTime &rArr; RTC_WriteTimeCounter &rArr; RTC_ExitInitMode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RTC_SetTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[173]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initRTC
+<BR>[Called By]<UL><LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initRTC
 </UL>
 
 <P><STRONG><a name="[146]"></a>sqrt</STRONG> (Thumb, 76 bytes, Stack size 24 bytes, sqrt.o(i.sqrt))
@@ -2694,7 +2697,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adjustTouch
 </UL>
 
-<P><STRONG><a name="[182]"></a>systemClockConfig</STRONG> (Thumb, 116 bytes, Stack size 96 bytes, systemconfig.o(i.systemClockConfig))
+<P><STRONG><a name="[181]"></a>systemClockConfig</STRONG> (Thumb, 116 bytes, Stack size 96 bytes, systemconfig.o(i.systemClockConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 156<LI>Call Chain = systemClockConfig &rArr; HAL_RCC_ClockConfig &rArr; HAL_RCC_GetSysClockFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Config
@@ -2731,31 +2734,31 @@ Global Symbols
 <LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromReadBytes
 </UL>
-<BR>[Called By]<UL><LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchTest
+<BR>[Called By]<UL><LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchTest
 <LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adjustTouch
 </UL>
 
 <P><STRONG><a name="[18e]"></a>touchReadADC</STRONG> (Thumb, 166 bytes, Stack size 24 bytes, touch.o(i.touchReadADC))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = touchReadADC &rArr; HAL_Delay
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = touchReadADC &rArr; touchWriteByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 <LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchWriteByte
 <LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_ReadPin
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Delay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchReadXOrY
 </UL>
 
 <P><STRONG><a name="[190]"></a>touchReadXOrY</STRONG> (Thumb, 100 bytes, Stack size 32 bytes, touch.o(i.touchReadXOrY))
-<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = touchReadXOrY &rArr; touchReadADC &rArr; HAL_Delay
+<BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = touchReadXOrY &rArr; touchReadADC &rArr; touchWriteByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchReadADC
 </UL>
-<BR>[Called By]<UL><LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchReadXY
+<BR>[Called By]<UL><LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchReadXY
 </UL>
 
-<P><STRONG><a name="[17c]"></a>touchReadXY</STRONG> (Thumb, 34 bytes, Stack size 24 bytes, touch.o(i.touchReadXY))
-<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = touchReadXY &rArr; touchReadXOrY &rArr; touchReadADC &rArr; HAL_Delay
+<P><STRONG><a name="[17b]"></a>touchReadXY</STRONG> (Thumb, 34 bytes, Stack size 24 bytes, touch.o(i.touchReadXY))
+<BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = touchReadXY &rArr; touchReadXOrY &rArr; touchReadADC &rArr; touchWriteByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchReadXOrY
 </UL>
@@ -2764,9 +2767,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[189]"></a>touchReadXY2</STRONG> (Thumb, 122 bytes, Stack size 32 bytes, touch.o(i.touchReadXY2))
-<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = touchReadXY2 &rArr; touchReadXY &rArr; touchReadXOrY &rArr; touchReadADC &rArr; HAL_Delay
+<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = touchReadXY2 &rArr; touchReadXY &rArr; touchReadXOrY &rArr; touchReadADC &rArr; touchWriteByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchReadXY
+<BR>[Calls]<UL><LI><a href="#[17b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchReadXY
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;scanTouch
 </UL>
@@ -2778,11 +2781,11 @@ Global Symbols
 <LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
 <LI><a href="#[157]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;eepromWriteBytes
 </UL>
-<BR>[Called By]<UL><LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchTest
+<BR>[Called By]<UL><LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchTest
 <LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;adjustTouch
 </UL>
 
-<P><STRONG><a name="[17d]"></a>touchTest</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, touch.o(i.touchTest))
+<P><STRONG><a name="[17c]"></a>touchTest</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, touch.o(i.touchTest))
 <BR><BR>[Stack]<UL><LI>Max Depth = 296<LI>Call Chain = touchTest &rArr; adjustTouch &rArr; touchAdjInfoShow &rArr; LCD_ShowNum &rArr; LCD_ShowChar &rArr; LCD_Fast_DrawPoint &rArr; lcdWriteData
 </UL>
 <BR>[Calls]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;touchSaveAdjData
@@ -2804,22 +2807,22 @@ Global Symbols
 <P><STRONG><a name="[191]"></a>uartEnableRx</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, usart.o(i.uartEnableRx))
 <BR><BR>[Calls]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Receive_IT
 </UL>
-<BR>[Called By]<UL><LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartInit
+<BR>[Called By]<UL><LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartInit
 </UL>
 
-<P><STRONG><a name="[17f]"></a>uartInit</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, usart.o(i.uartInit))
+<P><STRONG><a name="[17e]"></a>uartInit</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, usart.o(i.uartInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = uartInit &rArr; HAL_UART_Init &rArr; HAL_UART_MspInit &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 <LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uartEnableRx
 </UL>
-<BR>[Called By]<UL><LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initUart
+<BR>[Called By]<UL><LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;initUart
 </UL>
 <P>
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[16d]"></a>iicDelay</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, iic.o(i.iicDelay))
+<P><STRONG><a name="[16c]"></a>iicDelay</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, iic.o(i.iicDelay))
 <BR><BR>[Called By]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicWaitAck
 <LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicStop
 <LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;iicStart
@@ -3096,10 +3099,10 @@ Local Symbols
 <BR>[Address Reference Count : 1]<UL><LI> usbd_cdc.o(.data)
 </UL>
 <P><STRONG><a name="[10]"></a>USBD_CDC_Setup</STRONG> (Thumb, 106 bytes, Stack size 16 bytes, usbd_cdc.o(i.USBD_CDC_Setup))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = USBD_CDC_Setup &rArr; USBD_CtlPrepareRx &rArr; USBD_LL_PrepareReceive &rArr; HAL_PCD_EP_Receive &rArr; USB_EPStartXfer &rArr; USB_WritePMA
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = USBD_CDC_Setup &rArr; USBD_CtlSendData &rArr; USBD_LL_Transmit &rArr; HAL_PCD_EP_Transmit &rArr; USB_EPStartXfer &rArr; USB_WritePMA
 </UL>
-<BR>[Calls]<UL><LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlPrepareRx
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlSendData
+<BR>[Calls]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlSendData
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USBD_CtlPrepareRx
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> usbd_cdc.o(.data)
 </UL>
