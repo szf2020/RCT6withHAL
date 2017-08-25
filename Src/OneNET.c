@@ -1,5 +1,7 @@
 #include "OneNET.h"
-OneNET_HTTP oneNETHttp = {0};
+HttpProtocol httpProtocol = {0};
+OneNetHttp oneNetHttp = {0};
+JsonRegisterDe jsonReg = {0};
 uint16_t countContentSize(char *content){
 	uint16_t i;
 	for(i = 0;i < CONTENT_MAX_SIZE;i++){
@@ -9,33 +11,111 @@ uint16_t countContentSize(char *content){
 	}
 	return i+1;
 }
-void registerDevice(char *sn,char *title){
-	char url[100];
-	char content[CONTENT_MAX_SIZE];
-	char contentLenStr[20];
-	espRxFram.InfBit.FramLength = 0;
-	oneNETHttp.httpType = "POST";
-	oneNETHttp.url = URL_REG;
-	oneNETHttp.param[0] = PARAM_DEV_REG_CODE;
-	oneNETHttp.httpProtocol = HTTP_PROTOCOL;
-	sprintf(url,"%s %s%s %s\r\n",oneNETHttp.httpType,oneNETHttp.url,oneNETHttp.param[0],oneNETHttp.httpProtocol);
-	oneNETHttp.host = HOST;
-	sprintf(content,"{\"sn\":\"%s\",\"title\":\"%s\"}",sn,title);
-	oneNETHttp.jsonSize = countContentSize(content);
-	sprintf(contentLenStr,"%s%d\r\n\r\n",CONTENT_LEN,oneNETHttp.jsonSize);
-	oneNETHttp.contentLenStr = contentLenStr;
-	printf("%s",url);
-	printf("%s",oneNETHttp.host);
-	printf("%s",contentLenStr);
-	printf("%s\n",content);
+BOOLEAN searchStr(char *source,char *str,char *save){
+	uint16_t sourceCount = 0;
+	uint8_t strCount = 0;
+	uint8_t saveCount = 0;
+	while(source[sourceCount] != '{'){
+		sourceCount ++;
+	}
+	while(1){
+		if(source[sourceCount] == str[strCount]){
+			sourceCount ++;
+			strCount ++;
+			if(str[strCount] == '\0'){
+				break;
+			}
+			
+		}else{
+			strCount = 0;
+			sourceCount ++;
+			if(source[sourceCount] == '\0'){
+				save[saveCount] = '\0';
+				return FALSE;
+			}
+			
+		}
+	}
+	sourceCount = sourceCount + 2;
+	while(source[sourceCount] != ','){
+		if(source[sourceCount] == '}')break;
+		save[saveCount] = source[sourceCount];
+		saveCount ++;
+		sourceCount ++;
+	}
+	save[saveCount] = '\0';
+	return TRUE;
+}
+void sendHttp(void){
+	printf("%s",oneNetHttp.protocol);
+	printf("%s",oneNetHttp.head);
+	printf("%s",oneNetHttp.host);
+	printf("%s",oneNetHttp.contentLength);
+	printf("%s\n",oneNetHttp.json);
 	
-	espPrintf("%s",url);
-	espPrintf("%s",oneNETHttp.host);
-	espPrintf("%s",contentLenStr);
-	espPrintf("%s",content);
-	
+	espPrintf("%s",oneNetHttp.protocol);
+	espPrintf("%s",oneNetHttp.head);
+	espPrintf("%s",oneNetHttp.host);
+	espPrintf("%s",oneNetHttp.contentLength);
+	espPrintf("%s",oneNetHttp.json);
+}
+void recieveHttp(void){
 	HAL_Delay(2000);
 	espRxFram.Data_RX_BUF[espRxFram.InfBit.FramLength] = '\0';
-	printf("%s",espRxFram.Data_RX_BUF);
+	printf("%s\n",espRxFram.Data_RX_BUF);
+}
+JsonRegisterDe registerDe(char *sn,char *title){
 	
+	espRxFram.InfBit.FramLength = 0;
+	
+	httpProtocol.httpType = "POST";
+	httpProtocol.url = "/register_de?register_code=4s6bBQQb1imhUDQv";
+	sprintf(oneNetHttp.protocol,"%s %s HTTP/1.1\r\n",httpProtocol.httpType,httpProtocol.url);
+	oneNetHttp.head = NO_HEAD;
+	oneNetHttp.host = HOST;
+	sprintf(oneNetHttp.json,"{\"sn\":\"%s\",\"title\":\"%s\"}",sn,title);
+	httpProtocol.jsonSize = countContentSize(oneNetHttp.json);
+	sprintf(oneNetHttp.contentLength,"Content-Length:%d\r\n\r\n",httpProtocol.jsonSize);
+	
+	sendHttp();
+	recieveHttp();
+	
+	searchStr(espRxFram.Data_RX_BUF,"errno",jsonReg.err.errno);
+	if(jsonReg.err.errno[0] == '0'){
+		searchStr(espRxFram.Data_RX_BUF,"device_id",jsonReg.device_id);
+		searchStr(espRxFram.Data_RX_BUF,"key",jsonReg.key);
+	}
+	searchStr(espRxFram.Data_RX_BUF,"error",jsonReg.err.error);
+	
+	printf("errno = %s\n",jsonReg.err.errno);
+	if(jsonReg.err.errno[0] == '0'){
+		printf("device_id = %s\n",jsonReg.device_id);
+		printf("key = %s\n",jsonReg.key);
+	}
+	printf("error = %s\n",jsonReg.err.error);
+	return jsonReg;
+}
+
+JsonErr registerAttr(char *allow_dup){
+	JsonErr jsonErr = {0};
+	espRxFram.InfBit.FramLength = 0;
+	
+	httpProtocol.httpType = "PUT";
+	httpProtocol.url = "/register_attr?";
+	sprintf(oneNetHttp.protocol,"%s %s HTTP/1.1\r\n",httpProtocol.httpType,httpProtocol.url);
+	oneNetHttp.head = APIKEY_HEAD;
+	oneNetHttp.host = HOST;
+	sprintf(oneNetHttp.json,"{\"allow_dup\":%s}",allow_dup);
+	httpProtocol.jsonSize = countContentSize(oneNetHttp.json);
+	sprintf(oneNetHttp.contentLength,"Content-Length:%d\r\n\r\n",httpProtocol.jsonSize);
+	
+	sendHttp();
+	recieveHttp();
+	
+	searchStr(espRxFram.Data_RX_BUF,"errno",jsonErr.errno);
+	searchStr(espRxFram.Data_RX_BUF,"error",jsonErr.error);
+	
+	printf("errno = %s\n",jsonErr.errno);
+	printf("error = %s\n",jsonErr.error);
+	return jsonErr;
 }

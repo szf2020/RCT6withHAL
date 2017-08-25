@@ -502,6 +502,11 @@
               <FileType>1</FileType>
               <FilePath>..\Src\Esp8266.c</FilePath>
             </File>
+            <File>
+              <FileName>OneNET.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\OneNET.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

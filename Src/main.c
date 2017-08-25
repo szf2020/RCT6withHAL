@@ -90,7 +90,8 @@ int main(void)
 	espStart();
 	//HAL_Delay(1000);
 	//espSend();
-	registerDevice("123","456");
+	registerDe("123","456");
+	registerAttr("false");
   while (1)
   {
 		

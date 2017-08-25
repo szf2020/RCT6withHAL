@@ -41,3 +41,4 @@ BOOLEAN bufferCmp16(uint16_t* pBuffer1, uint16_t* pBuffer2, uint16_t BufferLengt
   }
   return TRUE;
 }
+

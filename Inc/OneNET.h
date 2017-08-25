@@ -6,30 +6,39 @@
 
 
 //OneNET 相关http协议
-#define	POST																			"POST"
-#define PUT																				"PUT"
-
-#define PARAM_DEV_REG_CODE												"register_code=4s6bBQQb1imhUDQv"
-#define HTTP_PROTOCOL															"HTTP/1.1"
-
-#define URL_REG																		"/register_de?"
-
+#define NO_HEAD																		""
+#define APIKEY_HEAD																"api-key: VJjx0ugy6uTIVVNC2d16Un=elPs=\r\n"
 #define HOST																			"Host:api.heclouds.com\r\n"
 #define CONTENT_LEN																"Content-Length:"
 
-#define CONTENT_MAX_SIZE													200
+#define CONTENT_MAX_SIZE													1024
 
 typedef struct{
+	uint16_t jsonSize;
 	char *httpType;
 	char *url;
-	char *param[15];
-	char *httpProtocol;
+}HttpProtocol;
+
+typedef struct{
+	char protocol[CONTENT_MAX_SIZE];
+	char *head;
 	char *host;
-	char *contentLenStr;
-	char *json;
-	uint16_t jsonSize;
-}OneNET_HTTP;
+	char contentLength[25];
+	char json[CONTENT_MAX_SIZE];
+}OneNetHttp;
 
-void registerDevice(char *sn,char *title);
+typedef struct{
+	char errno[3];
+	char error[7];
+}JsonErr;
 
+typedef struct{
+	JsonErr err;
+	char key[31];
+	char device_id[11];
+}JsonRegisterDe;
+
+
+JsonRegisterDe registerDe(char *sn,char *title);
+JsonErr registerAttr(char *allow_dup);
 #endif
