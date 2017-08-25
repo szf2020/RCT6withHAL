@@ -6,7 +6,7 @@
 
 
 //OneNET 相关http协议
-#define NO_HEAD																		""
+#define NOTHING																		""
 #define APIKEY_HEAD																"api-key: VJjx0ugy6uTIVVNC2d16Un=elPs=\r\n"
 #define HOST																			"Host:api.heclouds.com\r\n"
 #define CONTENT_LEN																"Content-Length:"
@@ -41,4 +41,5 @@ typedef struct{
 
 JsonRegisterDe registerDe(char *sn,char *title);
 JsonErr registerAttr(char *allow_dup);
+void getDevice(char *deviceId);
 #endif

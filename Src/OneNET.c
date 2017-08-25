@@ -71,7 +71,7 @@ JsonRegisterDe registerDe(char *sn,char *title){
 	httpProtocol.httpType = "POST";
 	httpProtocol.url = "/register_de?register_code=4s6bBQQb1imhUDQv";
 	sprintf(oneNetHttp.protocol,"%s %s HTTP/1.1\r\n",httpProtocol.httpType,httpProtocol.url);
-	oneNetHttp.head = NO_HEAD;
+	oneNetHttp.head = NOTHING;
 	oneNetHttp.host = HOST;
 	sprintf(oneNetHttp.json,"{\"sn\":\"%s\",\"title\":\"%s\"}",sn,title);
 	httpProtocol.jsonSize = countContentSize(oneNetHttp.json);
@@ -118,4 +118,23 @@ JsonErr registerAttr(char *allow_dup){
 	printf("errno = %s\n",jsonErr.errno);
 	printf("error = %s\n",jsonErr.error);
 	return jsonErr;
+}
+void getDevice(char *deviceId){
+	char url[100];
+	espRxFram.InfBit.FramLength = 0;
+	
+	httpProtocol.httpType = "GET";
+	httpProtocol.url = "http://api.heclouds.com/devices/";
+	sprintf(url,"%s%s",httpProtocol.url,deviceId);
+	sprintf(oneNetHttp.protocol,"%s %s HTTP/1.1\r\n",httpProtocol.httpType,url);
+	oneNetHttp.head = APIKEY_HEAD;
+	oneNetHttp.host = "Host:api.heclouds.com\r\n\r\n";
+	printf("%s",oneNetHttp.protocol);
+	printf("%s",oneNetHttp.head);
+	printf("%s\n",oneNetHttp.host);
+	
+	espPrintf("%s",oneNetHttp.protocol);
+	espPrintf("%s",oneNetHttp.head);
+	espPrintf("%s",oneNetHttp.host);
+	recieveHttp();
 }

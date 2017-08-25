@@ -92,6 +92,7 @@ int main(void)
 	//espSend();
 	registerDe("123","456");
 	registerAttr("false");
+	getDevice("11761503");
   while (1)
   {
 		
