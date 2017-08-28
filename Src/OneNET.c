@@ -191,6 +191,10 @@ JsonGetDevice getDevice(char *deviceId){
 	printf("%d  private = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"private\"",jsonGetDevice.jsonDeviceAttr.privated),jsonGetDevice.jsonDeviceAttr.privated);
 	printf("%d  title = %s\n",searchStr(espRxFram.Data_RX_BUF,",\"title\"",jsonGetDevice.jsonDeviceAttr.title),jsonGetDevice.jsonDeviceAttr.title);
 	printf("%d  auth_info = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"auth_info\"",jsonGetDevice.jsonDeviceAttr.title),jsonGetDevice.jsonDeviceAttr.title);
+	
+	printf("%d  dataStreamsId = %s\n",searchStr(espRxFram.Data_RX_BUF,"{\"id\"",jsonGetDevice.jsonDeviceAttr.dataStreamsId),jsonGetDevice.jsonDeviceAttr.dataStreamsId);
+	printf("%d  unit_symbol = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"unit_symbol\"",jsonGetDevice.jsonDeviceAttr.unit_symbol),jsonGetDevice.jsonDeviceAttr.unit_symbol);
+	printf("%d  ds_uuid = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"ds_uuid\"",jsonGetDevice.jsonDeviceAttr.ds_uuid),jsonGetDevice.jsonDeviceAttr.ds_uuid);
 	return jsonGetDevice;
 }
 /*
@@ -292,7 +296,7 @@ output	:JsonDataStreams
 describe:设备添加数据流
 remark	:
 */
-JsonDataStreams incDataStreams(char *deviceId,char *id,char *unit_symbol){
+JsonDataStreams incDataStreams(char *deviceId,char *dataStreamsId,char *unit_symbol){
 	JsonDataStreams jsonDataStreams = {0};
 	espRxFram.InfBit.FramLength = 0;
 	
@@ -301,7 +305,7 @@ JsonDataStreams incDataStreams(char *deviceId,char *id,char *unit_symbol){
 	sprintf(oneNetHttp.protocol,"%s %s HTTP/1.1\r\n",httpProtocol.httpType,httpProtocol.url);
 	oneNetHttp.head = APIKEY_HEAD;
 	oneNetHttp.host = HOST;
-	sprintf(oneNetHttp.json,"{\"id\":\"%s\",\"unit_symbol\":\"%s\"}",id,unit_symbol);
+	sprintf(oneNetHttp.json,"{\"id\":\"%s\",\"unit_symbol\":\"%s\"}",dataStreamsId,unit_symbol);
 	httpProtocol.jsonSize = countContentSize(oneNetHttp.json);
 	sprintf(oneNetHttp.contentLength,"Content-Length:%d\r\n\r\n",httpProtocol.jsonSize);
 	
@@ -312,4 +316,88 @@ JsonDataStreams incDataStreams(char *deviceId,char *id,char *unit_symbol){
 	printf("%d  error = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"error\"",jsonDataStreams.err.error),jsonDataStreams.err.error);
 	printf("%d  ds_uuid = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"ds_uuid\"",jsonDataStreams.ds_uuid),jsonDataStreams.ds_uuid);
 	return jsonDataStreams;
+}
+/*
+funName	:updateDataStreams
+input		:
+deviceId：设备ID
+id：数据流名称
+unit_symbol:数据流单位符号
+output	:JsonDataStreams
+describe:更新数据流
+remark	:
+*/
+JsonErr updateDataStreams(char *deviceId,char *dataStreamsId,char *unit_symbol){
+	JsonErr jsonErr = {0};
+	espRxFram.InfBit.FramLength = 0;
+	
+	httpProtocol.httpType = "PUT";
+	sprintf(httpProtocol.url,"/devices/%s/datastreams/%s?",deviceId,dataStreamsId);
+	sprintf(oneNetHttp.protocol,"%s %s HTTP/1.1\r\n",httpProtocol.httpType,httpProtocol.url);
+	oneNetHttp.head = APIKEY_HEAD;
+	oneNetHttp.host = HOST;
+	sprintf(oneNetHttp.json,"{\"unit_symbol\":\"%s\"}",unit_symbol);
+	httpProtocol.jsonSize = countContentSize(oneNetHttp.json);
+	sprintf(oneNetHttp.contentLength,"Content-Length:%d\r\n\r\n",httpProtocol.jsonSize);
+	
+	sendHttp();
+	recieveHttp();
+	
+	printf("%d  errno = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"errno\"",jsonErr.errno),jsonErr.errno);
+	printf("%d  error = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"error\"",jsonErr.error),jsonErr.error);
+	return jsonErr;
+}
+/*
+funName	:getDataStreams
+input		:
+deviceId：设备ID
+id：数据流名称
+output	:JsonDataStreams
+describe:获取数据流
+remark	:没有数据流则不返回 current_value 数据
+*/
+JsonDataStreams getDataStreams(char *deviceId,char *dataStreamsId){
+	JsonDataStreams jsonDataStreams = {0};
+	espRxFram.InfBit.FramLength = 0;
+	
+	httpProtocol.httpType = "GET";
+	sprintf(httpProtocol.url,"/devices/%s/datastreams/%s?",deviceId,dataStreamsId);
+	sprintf(oneNetHttp.protocol,"%s %s HTTP/1.1\r\n",httpProtocol.httpType,httpProtocol.url);
+	oneNetHttp.head = APIKEY_HEAD;
+	oneNetHttp.host = HOST;
+	oneNetHttp.host = (char *)malloc(30);
+	sprintf(oneNetHttp.host,"%s\r\n",HOST);
+	sprintf(oneNetHttp.json,"");
+	sprintf(oneNetHttp.contentLength,"");
+	
+	sendHttp();
+	free(oneNetHttp.host);
+	recieveHttp();
+	
+	printf("%d  errno = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"errno\"",jsonDataStreams.err.errno),jsonDataStreams.err.errno);
+	printf("%d  error = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"error\"",jsonDataStreams.err.error),jsonDataStreams.err.error);
+	printf("%d  current_value = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"current_value\"",jsonDataStreams.current_value),jsonDataStreams.current_value);
+	return jsonDataStreams;
+}
+JsonErr deleteDataStreams(char *deviceId,char *dataStreamsId){
+	JsonErr JsonErr = {0};
+	espRxFram.InfBit.FramLength = 0;
+	
+	httpProtocol.httpType = "DELETE";
+	sprintf(httpProtocol.url,"/devices/%s/datastreams/%s?",deviceId,dataStreamsId);
+	sprintf(oneNetHttp.protocol,"%s %s HTTP/1.1\r\n",httpProtocol.httpType,httpProtocol.url);
+	oneNetHttp.head = APIKEY_HEAD;
+	oneNetHttp.host = HOST;
+	oneNetHttp.host = (char *)malloc(30);
+	sprintf(oneNetHttp.host,"%s\r\n",HOST);
+	sprintf(oneNetHttp.json,"");
+	sprintf(oneNetHttp.contentLength,"");
+	
+	sendHttp();
+	free(oneNetHttp.host);
+	recieveHttp();
+	
+	printf("%d  errno = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"errno\"",JsonErr.errno),JsonErr.errno);
+	printf("%d  error = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"error\"",JsonErr.error),JsonErr.error);
+	return JsonErr;
 }

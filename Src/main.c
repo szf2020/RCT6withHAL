@@ -93,7 +93,7 @@ int main(void)
 //	registerDe("123","456");
 //	registerAttr("false");
 	getDevice("11761503");
-	incDataStreams("11761503","temperature","C");
+	deleteDataStreams("11761503","temperature");
   while (1)
   {
 		
