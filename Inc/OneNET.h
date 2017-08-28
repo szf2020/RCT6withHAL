@@ -61,8 +61,14 @@ typedef struct{
 
 typedef struct{
 	JsonDeviceAttr jsonDeviceAttr;
-	JsonErr err;
+	JsonErr err;	
 }JsonGetDevice;
+
+typedef struct{
+	char value[10];
+	char dataPointsId[25];
+	JsonErr err;
+}JsonDataPoints;
 
 #pragma pack()
 
@@ -78,4 +84,7 @@ JsonDataStreams incDataStreams(char *deviceId,char *id,char *unit_symbol);
 JsonErr 				updateDataStreams(char *deviceId,char *dataStreamsId,char *unit_symbol);
 JsonDataStreams getDataStreams(char *deviceId,char *dataStreamsId);
 JsonErr deleteDataStreams(char *deviceId,char *dataStreamsId);
+
+JsonErr incDataPoints(char *deviceId,char *dataStreamsId,char *value);
+JsonDataPoints getDataPoints(char *deviceId,char *dataStreamsId);
 #endif

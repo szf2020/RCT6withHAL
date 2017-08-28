@@ -376,7 +376,7 @@ JsonDataStreams getDataStreams(char *deviceId,char *dataStreamsId){
 	
 	printf("%d  errno = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"errno\"",jsonDataStreams.err.errno),jsonDataStreams.err.errno);
 	printf("%d  error = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"error\"",jsonDataStreams.err.error),jsonDataStreams.err.error);
-	printf("%d  current_value = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"current_value\"",jsonDataStreams.current_value),jsonDataStreams.current_value);
+	printf("%d  current_value = %s\n",searchStr(espRxFram.Data_RX_BUF,"{\"value\"",jsonDataStreams.current_value),jsonDataStreams.current_value);
 	return jsonDataStreams;
 }
 JsonErr deleteDataStreams(char *deviceId,char *dataStreamsId){
@@ -400,4 +400,59 @@ JsonErr deleteDataStreams(char *deviceId,char *dataStreamsId){
 	printf("%d  errno = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"errno\"",JsonErr.errno),JsonErr.errno);
 	printf("%d  error = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"error\"",JsonErr.error),JsonErr.error);
 	return JsonErr;
+}
+JsonErr incDataPoints(char *deviceId,char *dataStreamsId,char *value){
+	JsonErr jsonErr = {0};
+	espRxFram.InfBit.FramLength = 0;
+	
+	httpProtocol.httpType = "POST";
+	sprintf(httpProtocol.url,"/devices/%s/datapoints?type=3",deviceId);
+	sprintf(oneNetHttp.protocol,"%s %s HTTP/1.1\r\n",httpProtocol.httpType,httpProtocol.url);
+	oneNetHttp.head = APIKEY_HEAD;
+	oneNetHttp.host = HOST;
+	sprintf(oneNetHttp.json,"{\"%s\":\
+	[\
+		{\
+			\"id\":\"%s\",\
+			\"datapoints\":\
+			[\
+				{\
+					\"value\":\"%s\"\
+				}\
+			]\
+		}\
+	]\
+	}",dataStreamsId,dataStreamsId,value);
+	httpProtocol.jsonSize = countContentSize(oneNetHttp.json);
+	sprintf(oneNetHttp.contentLength,"Content-Length:%d\r\n\r\n",httpProtocol.jsonSize);
+	
+	sendHttp();
+	recieveHttp();
+	
+	printf("%d  errno = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"errno\"",jsonErr.errno),jsonErr.errno);
+	printf("%d  error = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"error\"",jsonErr.error),jsonErr.error);
+	return jsonErr;
+}
+JsonDataPoints getDataPoints(char *deviceId,char *dataStreamsId){
+	JsonDataPoints jsonDataPoints = {0};
+	espRxFram.InfBit.FramLength = 0;
+	
+	httpProtocol.httpType = "GET";
+	sprintf(httpProtocol.url,"/devices/%s/datapoints?datastream_id=%s&limit=1&newadd=true",deviceId,dataStreamsId);
+	sprintf(oneNetHttp.protocol,"%s %s HTTP/1.1\r\n",httpProtocol.httpType,httpProtocol.url);
+	oneNetHttp.head = APIKEY_HEAD;
+	oneNetHttp.host = HOST;
+	oneNetHttp.host = (char *)malloc(30);
+	sprintf(oneNetHttp.host,"%s\r\n",HOST);
+	sprintf(oneNetHttp.json,"");
+	sprintf(oneNetHttp.contentLength,"");
+	
+	sendHttp();
+	free(oneNetHttp.host);
+	recieveHttp();
+	
+	printf("%d  errno = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"errno\"",jsonDataPoints.err.errno),jsonDataPoints.err.errno);
+	printf("%d  error = %s\n",searchStr(espRxFram.Data_RX_BUF,"\"error\"",jsonDataPoints.err.error),jsonDataPoints.err.error);
+	printf("%d  value = %s\n",searchStr(espRxFram.Data_RX_BUF,"{\"value\"",jsonDataPoints.value),jsonDataPoints.value);
+	return jsonDataPoints;
 }
