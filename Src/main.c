@@ -90,9 +90,10 @@ int main(void)
 	espStart();
 	//HAL_Delay(1000);
 	//espSend();
-	registerDe("123","456");
-	registerAttr("false");
+//	registerDe("123","456");
+//	registerAttr("false");
 	getDevice("11761503");
+	incDataStreams("11761503","temperature","C");
   while (1)
   {
 		
