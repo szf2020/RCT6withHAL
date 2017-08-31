@@ -24,6 +24,7 @@
 ".\rct6\infrared.o"
 ".\rct6\esp8266.o"
 ".\rct6\onenet.o"
+".\rct6\json.o"
 ".\rct6\stm32f1xx_hal_dma.o"
 ".\rct6\stm32f1xx_hal_cortex.o"
 ".\rct6\stm32f1xx_hal_gpio_ex.o"

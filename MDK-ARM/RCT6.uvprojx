@@ -507,6 +507,11 @@
               <FileType>1</FileType>
               <FilePath>..\Src\OneNET.c</FilePath>
             </File>
+            <File>
+              <FileName>Json.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\Json.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -7,8 +7,11 @@
 #include <string.h>  
 #include <stdbool.h>
 #include <stdarg.h>
+#include "Timer.h"
+#include "Iic.h"
 extern UART_HandleTypeDef huart2;//串口2
 Usart2_Fram espRxFram = {0};
+EspWifi espWifi = {0};
 /* 私有函数原形 --------------------------------------------------------------*/
 static char * itoa( int value, char * string, int radix );
 /*
@@ -161,6 +164,79 @@ bool espCmd(char * cmd, char * reply1, char * reply2, uint32_t waittime){
 		return ( ( bool ) strstr ( espRxFram .Data_RX_BUF, reply2 ) );
 }
 /*
+funName	:espAPScan
+input		:
+output	:
+describe:wifi热点接收数据
+remark	:
+*/
+bool espAPScan(void){
+	
+	uint8_t read[WIFI_SIZE];
+	char *p;
+	uint8_t size;
+	int i;
+	
+	eepromReadBytes(read, WIFI_NAME_ADR, WIFI_SIZE);
+	printf("%s\n",read);
+	if(strstr((char *)read,"wifi:")?1:0){
+		for(i = 0;read[i] != 0;i++){
+			espWifi.wifiName[i] = read[i + 5];
+		}
+		espWifi.wifiName[i] = '\0';
+		printf("%s\n",espWifi.wifiName);
+	}else{
+		printf("no wifi name\n");
+	}
+	eepromReadBytes(read, WIFI_KEY_ADR, WIFI_SIZE);
+	printf("%s\n",read);
+	if(strstr((char *)read,"key:")?1:0){
+		for(i = 0;read[i] != 0;i++){
+			espWifi.wifiKey[i] = read[i + 4];
+		}
+		espWifi.wifiKey[i] = '\0';
+		printf("%s\n",espWifi.wifiKey);
+		return false;
+	}else{
+		printf("no wifi key\n");
+	}
+	/*------------------------------------------------------------------------------------*/
+	while(1){
+		if(timercounter[2] % 500 == 0){
+			espRxFram.Data_RX_BUF[espRxFram.InfBit.FramLength] = '\0';
+			espRxFram.InfBit.FramLength = 0;
+			if(strstr(espRxFram.Data_RX_BUF,"+IPD")?1:0){
+				printf("%s\n",espRxFram.Data_RX_BUF);
+				if((p = strstr(espRxFram.Data_RX_BUF,"wifi:"))?1:0){
+					sprintf(espWifi.wifiName,"%s",p);
+					size = strlen(espWifi.wifiName);
+					printf("%s---%d\n",espWifi.wifiName,size + 1);
+					eepromWriteBytes((uint8_t *)espWifi.wifiName,WIFI_NAME_ADR,size + 1);
+					HAL_Delay(100);
+					eepromReadBytes(read, WIFI_NAME_ADR, size + 1);
+					for (i=0;i<size + 1;i++)
+					{    
+						printf("%02X ", read[i]);
+					}
+				}
+				if((p = strstr(espRxFram.Data_RX_BUF,"key:"))?1:0){
+					sprintf(espWifi.wifiKey,"%s",p);
+					size = strlen(espWifi.wifiKey);
+					printf("%s---%d\n",espWifi.wifiKey,size + 1);
+					eepromWriteBytes((uint8_t *)espWifi.wifiKey,WIFI_KEY_ADR,size + 1);
+					HAL_Delay(100);
+					eepromReadBytes(read, WIFI_KEY_ADR, size + 1);
+					for (i=0;i<size + 1;i++)
+					{    
+						printf("%02X ", read[i]);
+					}
+					 return true;
+				}
+			}
+		}
+	}
+}
+/*
 funName	:espCheck
 input		:
 output	:1，指令发送成功0，指令发送失败
@@ -247,6 +323,29 @@ bool espEnableMultipleId ( FunctionalState enumEnUnvarnishTx )
 	return 0;		
 }
 /*
+funName	:espEnableServer
+input		:enumEnUnvarnishTx，是否配置为服务器
+output	:1，指令发送成功0，指令发送失败
+describe:ESP8266模块设为服务器
+remark	:
+*/
+bool espEnableServer( FunctionalState enumEnUnvarnishTx )
+{
+	char cStr [20];
+	char count=0;
+	if(enumEnUnvarnishTx == ENABLE){
+		sprintf ( cStr, "AT+CIPSERVER=1,5000");
+	}else{
+		sprintf ( cStr, "AT+CIPSERVER=0");
+	}
+	while(count<10)
+	{
+		if(espCmd(cStr,"OK",0,500))return 1;
+		++count;
+	}
+	return 0;		
+}
+/*
 funName	:espLinkServer
 input		:
 enumE，网络协议
@@ -298,27 +397,40 @@ bool espUnvarnishSend ( void )
 	return  espCmd ( "AT+CIPSEND", "OK", ">", 1000 );
 }
 /*
-funName	:espStart
+funName	:espServerMode
 input		:
-output	:0-5,0成功，1-5均失败
-describe:ESP8266模块启动
-remark	:
+output	:
+describe:ESP8266设置服务器模式
+remark	:接收客户端信息
 */
-uint8_t espStart(void){
-	uint8_t count = 5;
+void espServerMode(void){
 	if(!espCheck()){
 		printf("没有检测到esp8266！\n");
-		return 1;
+		while(1);
 	}
 	if(!espChooseMode(STA_AP)){
 		printf("模式设置失败！\n");
-		return 2;
+		while(1);
 	}
-	if(!espJoinAP(WIFI_ID,WIFI_KEY)){
-		printf("wifi设置失败！\n");
-		return 3;
-	}
+	espEnableMultipleId(ENABLE);
+	espEnableServer(ENABLE);
+}
+/*
+funName	:espStart
+input		:
+output	:
+describe:ESP8266连接wifi
+remark	:
+*/
+void espStart(void){
+	uint8_t count = 5;
+	espEnableServer(DISABLE);
 	espEnableMultipleId(DISABLE);
+	if(!espJoinAP(espWifi.wifiName,espWifi.wifiKey)){
+		printf("wifi设置失败！\n");
+		while(1);
+	}
+
 	while(count){
 		if(espLinkServer(enumTCP,User_ESP8266_TcpServer_IP,User_ESP8266_TcpServer_Port,Single_ID_0)){
 			break;
@@ -328,7 +440,7 @@ uint8_t espStart(void){
 		}
 		if(count == 0){
 			printf("连接服务器失败\n");
-			return 4;
+			while(1);
 		}
 	}
 	count = 5;
@@ -340,11 +452,9 @@ uint8_t espStart(void){
 		}
 		if(count == 0){
 			printf("透传模式设置失败！\n");
-			return 5;
+			while(1);
 		}
 	}
-//	printf("配置完毕！\n");
-	return 0;
 }
 /*
 funName	:espSendString

@@ -179,7 +179,7 @@ remark	:
 */
 void touchTest(void){
 	if(touchGetAdjData()){
-//		printf("已经校准!\n");
+		printf("已经校准!\n");
 	}//已经校准
 	else			   //未校准?
 	{ 										    
@@ -236,7 +236,7 @@ uint8_t scanTouch(uint8_t tp){
 		{
 	 		touchDev.x[0]=touchDev.xfac*touchDev.x[0]+touchDev.xoff;//将结果转换为屏幕坐标
 			touchDev.y[0]=touchDev.yfac*touchDev.y[0]+touchDev.yoff;  
-//			printf("x = %d,y = %d\n",touchDev.x[0],touchDev.y[0]);
+			//printf("x = %d,y = %d\n",touchDev.x[0],touchDev.y[0]);
 	 	} 
 		if((touchDev.sta&TP_PRES_DOWN)==0)//之前没有被按下
 		{		 
@@ -269,7 +269,7 @@ describe:保存校准数据到eeprom
 remark	:
 */
 //保存在EEPROM里面的地址区间基址,占用13个字节(RANGE:SAVE_ADDR_BASE~SAVE_ADDR_BASE+12)
-#define SAVE_ADDR_BASE 40
+#define SAVE_ADDR_BASE 240
 void touchSaveAdjData(void){
 	uint32_t temp;			
 	uint8_t data[4];	

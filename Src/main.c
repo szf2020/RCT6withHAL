@@ -48,7 +48,7 @@ int main(void)
 	initButton();
 	initTimer(TIM1);
 	initTimer(TIM2);//10us
-//	initTimer(TIM3);
+	initTimer(TIM3);
 //	initTimer(TIM4);
 //	initTimer(TIM5);
 //	initTimer(TIM6);
@@ -87,6 +87,8 @@ int main(void)
 //	POINT_COLOR = RED;
 //	LCD_Set_Window(100,100,100,60);
 //	POINT_COLOR = BLUE;
+	espServerMode();
+	espAPScan();
 	espStart();
 	//HAL_Delay(1000);
 	//espSend();
@@ -95,13 +97,13 @@ int main(void)
 //	getDevice("11761503");
 //	incDataStreams("11761503","temperature","C");
 //	incDataPoints("11761503","temperature","24");
-	getDataPoints("11761503","temperature");
+//	getDataPoints("11761503","temperature");
   while (1)
   {
-		
 		scanKey1();
 		ledPwm();
 		touchDev.scan(0);
+		
 		//espSend();
 		//HAL_Delay(1000);
 		espScanConnect();
