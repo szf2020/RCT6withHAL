@@ -88,7 +88,7 @@ uint16_t LCD_ReadPoint(uint16_t x,uint16_t y);
 void LCD_DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);
 void LCD_DrawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);
 void LCD_Draw_Circle(uint16_t x0,uint16_t y0,uint8_t r);
-void LCD_Fill(u16 sx,u16 sy,u16 ex,u16 ey,u16 color);
+void LCD_Fill(uint16_t sx,uint16_t sy,uint16_t ex,uint16_t ey,uint16_t color);
 void setLcdDir(uint8_t dir);
 void LCD_ShowxNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len,uint8_t size,uint8_t mode);
 void LCD_ShowNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len,uint8_t size);

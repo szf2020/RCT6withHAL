@@ -94,7 +94,7 @@ int main(void)
 	//espSend();
 //	registerDe("123","456");
 //	registerAttr("false");
-//	getDevice("11761503");
+	incDevice("yyy","false","yyy");
 //	incDataStreams("11761503","temperature","C");
 //	incDataPoints("11761503","temperature","24");
 //	getDataPoints("11761503","temperature");

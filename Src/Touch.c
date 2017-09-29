@@ -339,7 +339,7 @@ uint8_t touchGetAdjData(void){
 	return 0;
 }
 //提示字符串
-const u8* TP_REMIND_MSG_TBL="Please use the stylus click the cross on the screen.The cross will always move until the screen adjustment is completed.";
+const uint8_t* TP_REMIND_MSG_TBL="Please use the stylus click the cross on the screen.The cross will always move until the screen adjustment is completed.";
 //提示校准结果(各个参数)
 /*
 funName	:touchAdjInfoShow
@@ -348,7 +348,7 @@ output	:
 describe:校验提示信息
 remark	:
 */
-void touchAdjInfoShow(u16 x0,u16 y0,u16 x1,u16 y1,u16 x2,u16 y2,u16 x3,u16 y3,u16 fac)
+void touchAdjInfoShow(uint16_t x0,uint16_t y0,uint16_t x1,uint16_t y1,uint16_t x2,uint16_t y2,uint16_t x3,uint16_t y3,uint16_t fac)
 {	  
 	POINT_COLOR=RED;
 	LCD_ShowString(40,160,lcdDevice.width,lcdDevice.height,16,"x1:");
@@ -372,7 +372,7 @@ void touchAdjInfoShow(u16 x0,u16 y0,u16 x1,u16 y1,u16 x2,u16 y2,u16 x3,u16 y3,u1
 
 }
 //校准点参数：(0,1)与(2,3)，(0,2)与(1,3),(1,2)与(0,3)，这三组点的距离
-const u8 TP_ADJDIS_TBL[3][4]={{0,1,2,3},{0,2,1,3},{1,2,0,3}};//校准距离计算表
+const uint8_t TP_ADJDIS_TBL[3][4]={{0,1,2,3},{0,2,1,3},{1,2,0,3}};//校准距离计算表
 //触摸屏校准代码
 //得到四个校准参数
 /*
@@ -383,15 +383,15 @@ describe:校验触摸屏
 remark	:
 */
 void adjustTouch(void){
-	u16 pos_temp[4][2];//坐标缓存值
-	u8  cnt=0;	
-	u16 d1,d2;
-	u32 tem1,tem2;
+	uint16_t pos_temp[4][2];//坐标缓存值
+	uint8_t  cnt=0;	
+	uint16_t d1,d2;
+	uint32_t tem1,tem2;
 	float fac; 	
-	u16 outtime=0; 	  
+	uint16_t outtime=0; 	  
 	LCD_Clear(WHITE);	//清屏 	    
 	POINT_COLOR=BLUE;	//蓝色
-	LCD_ShowString(40,40,160,100,16,(u8*)TP_REMIND_MSG_TBL);//显示提示信息
+	LCD_ShowString(40,40,160,100,16,(uint8_t*)TP_REMIND_MSG_TBL);//显示提示信息
 	TouchDrawPoint(20,20,RED);//画点1 
 	touchDev.sta=0;//消除触发信号 
 	touchDev.xfac=0;//xfac用来标记是否校准过,所以校准之前必须清掉!以免错误	 

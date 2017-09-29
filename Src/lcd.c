@@ -391,10 +391,10 @@ output	:
 describe:在指定区域内填充指定颜色
 remark	:
 */
-void LCD_Fill(u16 sx,u16 sy,u16 ex,u16 ey,u16 color)
+void LCD_Fill(uint16_t sx,uint16_t sy,uint16_t ex,uint16_t ey,uint16_t color)
 {          
-	u16 i,j;
-	u16 xlen=0;
+	uint16_t i,j;
+	uint16_t xlen=0;
 	
 	xlen=ex-sx+1;	 
 	for(i=sy;i<=ey;i++)

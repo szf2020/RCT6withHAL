@@ -7,7 +7,7 @@
 
 //OneNET 相关http协议
 #define NOTHING																		""
-#define APIKEY_HEAD																"api-key: VJjx0ugy6uTIVVNC2d16Un=elPs=\r\n"
+#define APIKEY_HEAD																"api-key:VJjx0ugy6uTIVVNC2d16Un=elPs=\r\n"
 #define HOST																			"Host:api.heclouds.com\r\n"
 #define CONTENT_LEN																"Content-Length:"
 

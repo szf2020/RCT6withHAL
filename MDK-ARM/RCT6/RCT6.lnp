@@ -80,6 +80,7 @@
 ".\rct6\cc936.o"
 ".\rct6\syscall.o"
 --library_type=microlib --strict --scatter ".\RCT6\RCT6.sct"
+
 --diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
 --list "RCT6.map" -o .\RCT6\RCT6.axf
